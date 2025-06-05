@@ -1,0 +1,26 @@
+# custom style sheet for ace documentation
+
+/* change footer of site --> notthing seems to work!!! */
+.left-aligned-footer {
+  text-align: left;
+}
+
+/* change table looks */
+/* th: table header  */
+th {
+        background-color: #f2f2f2;
+    }
+/* Apply even row background color in table */
+tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+/* /1* highlight active section in toc-tree *1/ */
+/* .wy-menu-vertical .current > a { */
+/*     background-color: #e0e0e0; /1* Change to your desired highlight color *1/ */
+/*     font-weight: bold; /1* Optional: Make the text bold *1/ */
+/* } */
+
+/* .wy-menu-vertical .current > a:hover { */
+/*     background-color: #d0d0d0; /1* Optional: Hover effect *1/ */
+/* } */
