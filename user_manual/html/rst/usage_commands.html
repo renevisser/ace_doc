@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Commands and modes of operation &#8212; User Manual 2025a documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=28445a45" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_styles.css?v=b6557435" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=64635090" />
+    <script src="../_static/documentation_options.js?v=5e98d239"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/ace_32x32_small.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setup a new ACE project" href="setup_project.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ace_logo_html.png" alt="Logo of User Manual"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">User Manual</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objective.html">Objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Commands and modes of operation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-commands-and-plugins">Main commands and plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modes-of-operation-sub-commands">Modes of operation (sub-commands)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-command">Main command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sub-commands-modes">Sub-commands (modes)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup_project.html">Setup a new ACE project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ace_file.html">ACE project file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results_output.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_cards.html">Supported Nastran cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_pdf.html">Download pdf versions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="setup_project.html" title="next chapter">Setup a new ACE project</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="commands-and-modes-of-operation">
+<h1>Commands and modes of operation<a class="headerlink" href="#commands-and-modes-of-operation" title="Link to this heading">¶</a></h1>
+<section id="main-commands-and-plugins">
+<h2>Main commands and plugins<a class="headerlink" href="#main-commands-and-plugins" title="Link to this heading">¶</a></h2>
+<p>The ACE framework contains, besides the main program itself,
+of the following modular plug-in tools that may interact with ace and/or each other.
+Note that depending on the installation the actual command names can differ from
+those listed here. Please refer to your IT adminstrator if these commands are not
+available on your terminal.</p>
+<ul class="simple">
+<li><p><strong>ace</strong>: CDH/ACE command to perform autonomous computational experiments</p></li>
+<li><p><strong>py_ace</strong>: embedded python environment (version 3.10 incl. relevant packages)</p></li>
+<li><dl class="simple">
+<dt>Several ACE plugins:</dt><dd><ul>
+<li><p><strong>loadstorm</strong>: loadstorm procedure for mode agent and mode agent2 plugins</p></li>
+<li><p><strong>mode_agent_single</strong>: mode agent to process results for single experiment variant</p></li>
+<li><p><strong>mode_agent_collect</strong>: mode agent to collect mode agent data from all experiments</p></li>
+<li><p><strong>mode_agent2_single</strong>: mode agent2 to process results for single experiment variant</p></li>
+<li><p><strong>mode_agent2_collect</strong>: mode agent2 to collect mode agent data from all experiments</p></li>
+<li><p><strong>vao_agent</strong>: perform easy setup of CDH/VAO analysis based on an ACE project</p></li>
+<li><p><strong>robustness_study</strong>: perform robustness studies and fast response predictions using trained ML-models</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This manual concentrates on the main ACE application, whereas the general
+plugins are described in a separate section <a class="reference internal" href="plugins.html#plugins"><span class="std std-ref">plugins</span></a>.
+Note the <strong>embedded python</strong> version for ACE can be accessed by typing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># command to start ace python version:</span>
+py_ace
+</pre></div>
+</div>
+<p>This python distribution contains many relevant packages for advanced data science
+applications (see <code class="code highlight bash docutils literal highlight-bash">ace<span class="w"> </span>license<span class="w"> </span>--opensource</code> for versions of included packages).
+It is highly adviced to use this provided python version for writing custom plugins
+or add-ons. Please contact <a class="reference external" href="mailto:support&#37;&#52;&#48;cdh-ag&#46;com">CDH-support</a> in case of further information on writing
+custom plugins is required.</p>
+</section>
+<section id="modes-of-operation-sub-commands">
+<h2>Modes of operation (sub-commands)<a class="headerlink" href="#modes-of-operation-sub-commands" title="Link to this heading">¶</a></h2>
+<p>This section concerns the various operation modes and their options available for
+the main ACE command. As common with more complicated command line tools, ACE
+also offers several modes of operation (also referred to as sub-commands)
+that are used to bundle related or distinct tasks.
+In general each operation mode of ACE offers a brief
+command line help function to get some quick information how to operate the specified
+mode. Independent of the mode of operation this help can be accessed by specification
+of option <code class="docutils literal notranslate"><span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">--help</span></code>.</p>
+<section id="main-command">
+<h3>Main command<a class="headerlink" href="#main-command" title="Link to this heading">¶</a></h3>
+<p>Apart from the standard help <code class="docutils literal notranslate"><span class="pre">-h</span></code> functionality, the only other option
+available to the main ACE command itself is the <code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code> option
+to query the version number.</p>
+<p>Requesting help of the main <code class="docutils literal notranslate"><span class="pre">ace</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a brief help function for the main ace command:</span>
+ace<span class="w"> </span>-h<span class="w">  </span><span class="c1"># (alternative: --help)</span>
+</pre></div>
+</div>
+<p>will display the available operation modes (positional arguments)
+as well as an overview of the options available the the command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>========================================================================
+                             ACE 2025.006e
+                  Autonomous Computational Experiments
+========================================================================
+                    Visit us: https://www.cdh-ag.com
+                 Contact us: mailto:support@cdh-ag.com
+                 Copyright CDH AG. All rights reserved.
+========================================================================
+
+usage: ace [-h] [-v] {new,run,doc,license} ...
+
+ACE 2025.006e - Autonomous Computational Experiments for CAE
+
+positional arguments:
+  {new,run,doc,license}
+                        sub-command help
+    new                 Setup a new ACE project/analysis
+    run                 Run/start an ACE analysis
+    doc                 Access documentation
+    license             Show license information
+
+options:
+  -h, --help            show this help message and exit
+  -v, --version         show version of ACE
+</pre></div>
+</div>
+<p>whereas option <code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code> shows the current version:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>========================================================================
+                             ACE 2025.006d
+                  Autonomous Computational Experiments
+========================================================================
+                    Visit us: https://www.cdh-ag.com
+                 Contact us: mailto:support@cdh-ag.com
+                 Copyright CDH AG. All rights reserved.
+========================================================================
+
+<span class="hll">Using ACE version: 2025.006d
+</span></pre></div>
+</div>
+</section>
+<section id="sub-commands-modes">
+<h3>Sub-commands (modes)<a class="headerlink" href="#sub-commands-modes" title="Link to this heading">¶</a></h3>
+<p>In total 4 distinct task-specific sub-commands, or “modes of operation”, are available:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sub-command-new"><span class="std std-ref">new</span></a>: setup a <strong>new</strong> ACE project</p></li>
+<li><p><a class="reference internal" href="#sub-command-run"><span class="std std-ref">run</span></a>: start a <strong>run</strong> of an existing ACE project</p></li>
+<li><p><a class="reference internal" href="#sub-command-doc"><span class="std std-ref">doc</span></a>: access <strong>doc</strong>umentation and examples</p></li>
+<li><p><a class="reference internal" href="#sub-command-license"><span class="std std-ref">license</span></a>: options for <strong>license</strong> related operations (check, update, …)</p></li>
+</ul>
+<p>A sub-command is always positioned directly after the <code class="docutils literal notranslate"><span class="pre">ace</span></code> command but before
+the mode specified options according to the following semantic scheme:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># semantic scheme:</span>
+<span class="hll"><span class="nb">command</span><span class="w"> </span>subcommand<span class="w"> </span>option<span class="o">[</span>s<span class="o">]</span>
+</span>
+<span class="c1"># example to invoke &quot;license&quot; mode and perform option &quot;check&quot;:</span>
+ace<span class="w"> </span>license<span class="w"> </span>--check
+</pre></div>
+</div>
+<p>Note that each sub-command has its own mode-specific usage help function by
+specification of option <code class="docutils literal notranslate"><span class="pre">-h</span></code>. In addition it is emphasized that options always
+support the short format (single dash “-”) and an equivalent long format (double
+dash “–“), e.g. <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">license</span> <span class="pre">-h</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">license</span> <span class="pre">--help</span></code>.
+Whether short or long format should be used depends on the use-case (e.g. usage
+in a script or direct user input on the command line) and personal user
+preference.</p>
+<p>For the sake of completeness the available options for each of the sub-commands
+/ modes are described in the remainder of this session but in practice the
+build-in usage help <code class="docutils literal notranslate"><span class="pre">-h</span></code> will be more convenient and quicker to access.</p>
+<section id="sub-command-new">
+<h4>Sub-command new<a class="headerlink" href="#sub-command-new" title="Link to this heading">¶</a></h4>
+<p>The <em>new</em> mode bundles all options to setup a new ACE project and is accessed
+using the sub-command <code class="docutils literal notranslate"><span class="pre">new</span></code>. This is typically the starting point of any new
+ace study.  Before starting any ACE project, it is assumed that the user has a
+<strong>properly working Nastran or Optran job available</strong> that serves as reference
+job for all further downstream ace investigations. This new mode will read and
+parse the reference job and will use it to setup the so-called initial
+<strong>baseline</strong> job-directory.  The mode-specific usage help function gives an
+overview of the available options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># show usage help for setup of new ace project:</span>
+ace<span class="w"> </span>new<span class="w"> </span>-h
+</pre></div>
+</div>
+<p>yields (header lines are blended out for brevity):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ace new [-h] [-n NAME] [-r REFERENCE] [-o OUTPUT] [-e ENCODING]
+               [--encoding_errors {strict,ignore}] [--verbose]
+
+options:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  name of new ace project
+  -r REFERENCE, --reference REFERENCE
+                        reference solver input deck file (Nastran)
+  -o OUTPUT, --output OUTPUT
+                        output path to create the new project
+  -e ENCODING, --encoding ENCODING
+                        Text encoding scheme to apply in project (default:
+                        utf8)
+  --encoding_errors {strict,ignore}
+                        Encoding errors handling (default: strict)
+  --verbose             verbose mode: echo debug information to the
+                        console/log-file
+</pre></div>
+</div>
+<p>To create a new ACE project based with the name <strong>my_example</strong> based on a
+valid Nastran or Optran reference input deck <strong>input_deck.nas</strong> located in path
+<strong>path_ref</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create new ace project based on reference input deck:</span>
+ace<span class="w"> </span>new<span class="w"> </span>--name<span class="w"> </span>my_example<span class="w"> </span>--reference<span class="w"> </span>path_ref/input_deck.nas
+
+<span class="c1"># or alternative specification in short format:</span>
+ace<span class="w"> </span>new<span class="w"> </span>-n<span class="w"> </span>my_example<span class="w"> </span>-r<span class="w"> </span>path_ref/input_deck.nas
+</pre></div>
+</div>
+<p>In case of Optran input be sure to specify the input deck and <em>not</em> the
+so-called Optran “request” file (a potentially available request file will be
+recognized by ace automatically).</p>
+<p>Option <code class="docutils literal notranslate"><span class="pre">--output</span></code> can be used to specify a different output path to write the
+new project to (other than the default current work directory).</p>
+<p>Option <code class="docutils literal notranslate"><span class="pre">--encoding</span></code> should be used for cases where the input deck contains
+non-ASCII standard characters to specify the according text encoding scheme. For
+example to use models with Japanese characters use <code class="docutils literal notranslate"><span class="pre">--encoding_errors</span>
+<span class="pre">shift-jis</span></code> or, likewise, for models containing German special characters
+<code class="docutils literal notranslate"><span class="pre">--encoding_errors</span> <span class="pre">latin1</span></code> should be applied.  Errors concerning incompatible
+encoding typically can be solved by application of the correct scheme.  Note
+that mixing different encondings within a single input deck is highly disadviced
+will likely cause further downstream difficulties. However, to use such a mixed
+setup ACE can be configured to ignore all encoding errors by sepcification of
+<code class="docutils literal notranslate"><span class="pre">--encoding_errors</span> <span class="pre">ignore</span></code>.  The default encoding scheme is typically set
+during the installation of ACE in the <code class="docutils literal notranslate"><span class="pre">ace_default_settings.toml</span></code>
+configuration file. For configuration of ACE defaults reference is made to the
+installation manual.</p>
+<p>After invoking <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">new</span></code> ACE will start reading, parsing and copying the
+provided reference model into the so-called <strong>ace project directory</strong>
+“<strong>my_example_ace</strong>” which consists of the project name <strong>my_example</strong> with the
+suffix <strong>_ace</strong>. Note the suffix _ace should <em>not</em> be removed from the project
+directory as ace needs the suffix for identification purposes (in general do not
+manually rename projects afterwards).  Furtermore a standard directory structure
+and amongst others a so-called <strong>ace project file</strong> is generated in the project
+directory. The purpose of the “*.ace” project file is used to configure the ace
+simulation setup, e.g. similar to the funciton of a Nastran input deck.  From
+this point onwards, ACE no longer needs the original specified input deck as it
+made a (restructured) copy of the reference simulation job into the <strong>baseline</strong>
+sub-directory.  All further ACE steps use this baseline job/model as
+reference. Note the project directory as a whole can be copied to any other
+location without compromising the vadility of the ace job (all references are
+enclosed internally within the ace project directory).  For a more detailed
+description of the ACE directory structure reference is made to section
+<a class="reference internal" href="setup_project.html#project-directory-structure"><span class="std std-ref">Project directory structure</span></a>.</p>
+</section>
+<section id="sub-command-run">
+<h4>Sub-command run<a class="headerlink" href="#sub-command-run" title="Link to this heading">¶</a></h4>
+<p>The <em>run</em> mode bundles all options to start an existing ACE project and is
+accessed using the sub-command <code class="docutils literal notranslate"><span class="pre">run</span></code>. The main purpose of this mode is to
+either start a “fresh” ace run (e.g. just created with <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">new</span></code>) or to
+continue an existing ace run by invoking the restart option. It is recommended
+to execute the ace run command from within the ace project directory (typically
+ends with suffix “_ace”). All ace results are written the project directory.</p>
+<p>The built-in usage help function gives an overview of the available options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ace<span class="w"> </span>run<span class="w"> </span>-h
+</pre></div>
+</div>
+<p>yields (header lines are blended out for brevity):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ace run [-h] [-r] [-s SAMPLING] [-c {random,center}]
+               [-f FILE_DOE_SAMPLES] [-n N_SAMPLES_PER_DIMENSION]
+               [-b N_BATCHES_MAX] [--verbose]
+               path
+
+positional arguments:
+  path                  path to /in ace project directory
+
+options:
+  -h, --help            show this help message and exit
+  -r, --restart         use restart mode to continue previous analysis
+  -s SAMPLING, --sampling SAMPLING
+                        DOE sampling type, specify either: univariante,
+                        fullfactorial, lhs or random
+  -c {random,center}, --criterion {random,center}
+                        criterion for LHS sampling within each interval
+                        (default: None)
+  -f FILE_DOE_SAMPLES, --file_doe_samples FILE_DOE_SAMPLES
+                        Supply initial DOE samples for batch00 using a csv
+                        file
+  -n N_SAMPLES_PER_DIMENSION, --n_samples_per_dimension N_SAMPLES_PER_DIMENSION
+                        number of LHS samples per non-constant experiment
+                        parameter/dimension/feature
+  -b N_BATCHES_MAX, --n_batches_max N_BATCHES_MAX
+                        maximum allowed number of batches (1 implies a
+                        conventional DOE)
+  --baseline            run baseline simulation only (alias for &quot;-b1 -n0&quot;)
+  --verbose             verbose mode: echo debug information to the
+                        console/log-file
+</pre></div>
+</div>
+<p>The input argument “path” is mandatory and refers to the ace project directory
+(typically the current work directory if ace executed inside the project
+directory).</p>
+<p>To make a quick reference run of the baseline model only, e.g. at the beginning
+of an ACE analysis to validate whether the target has been defined correctly,
+the option <code class="docutils literal notranslate"><span class="pre">--baseline</span></code> is available. This is a simple alias for options <code class="docutils literal notranslate"><span class="pre">-b1</span>
+<span class="pre">-n0</span></code> (run single batch without any variations) and that ignores all DOE
+settings.</p>
+<p>Often it is useful to continue an existing ace run using the restart option
+<code class="docutils literal notranslate"><span class="pre">--restart</span></code>, e.g. to find a beter optimum or to continue after some CAE job
+might have failed.</p>
+<p>The option <code class="docutils literal notranslate"><span class="pre">--file_doe_samples</span></code> can be used to specify values for the initial
+design of experiment samples from an external file instead of using the standard
+ACE provided DOE functionality (see section <a class="reference internal" href="ace_file.html#doe-setup-design-of-experiments"><span class="std std-ref">design of experiments</span></a>).</p>
+<p>The remaining options are convenience options in case the user would like to
+quickly override some of the settings in the ace project file (*.ace) without
+modifying the file itself.</p>
+<p>Finally, the option <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> might be helpful for debugging purposes (e.g.
+providing extended log information to CDH support).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Specified command line options override potential equivalent
+settings from the ace project file (command line options have highest
+priority).</p>
+</div>
+<p>A typical ace run command would look like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># start a new/fresh ace run from within the project directory:</span>
+ace<span class="w"> </span>run<span class="w"> </span>.
+
+<span class="c1"># or continue an existing ace run and override batch</span>
+<span class="c1"># setting to use a maximum of 10 batches:</span>
+ace<span class="w"> </span>run<span class="w"> </span>--restart<span class="w"> </span>-b10<span class="w"> </span>.
+</pre></div>
+</div>
+<p>A full description of all options for run mode is given in section <a class="reference internal" href="ace_file.html#ace-project-file"><span class="std std-ref">ace
+project file</span></a>. Furthermore, the ace run mode and
+its options is learned best by running some of the tutorials from the example
+manual.</p>
+</section>
+<section id="sub-command-doc">
+<h4>Sub-command doc<a class="headerlink" href="#sub-command-doc" title="Link to this heading">¶</a></h4>
+<p>The sub-command <code class="docutils literal notranslate"><span class="pre">doc</span></code> handles all options for accessing <em>doc</em>umentation as
+well as extracting reference models for the tutorials described in the example
+manual.  As for each mode, <code class="docutils literal notranslate"><span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">--help</span></code>  provides an quick overview of
+the available options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># brief overview of access to the documentation</span>
+ace<span class="w"> </span>doc<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>results in:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>========================================================================
+                             ACE 2025.006e
+                  Autonomous Computational Experiments
+========================================================================
+                    Visit us: https://www.cdh-ag.com
+                 Contact us: mailto:support@cdh-ag.com
+                 Copyright CDH AG. All rights reserved.
+========================================================================
+
+usage: ace doc [-h] [-o] [-c] [-e EXTRACT_EXAMPLE]
+
+options:
+  -h, --help            show this help message and exit
+  -o, --open            Open main documentation (html)
+  -c, --copy            Get a local copy of the documentation (html/pdf)
+  -e EXTRACT_EXAMPLE, --extract_example EXTRACT_EXAMPLE
+                        Extract / get example Nastran model for tutorial
+                        (example manual)
+</pre></div>
+</div>
+<p>In case of linux based platforms, the recommended way to access the
+documentation is to open the html based version in the system default browser
+using option <code class="docutils literal notranslate"><span class="pre">--open</span></code> (or <code class="docutils literal notranslate"><span class="pre">-o</span></code>).  Alternatively, a local copy of the
+documentation in both html and pdf format can be obtained using the <code class="docutils literal notranslate"><span class="pre">--copy</span></code>
+option, resulting in a sub-directory <code class="docutils literal notranslate"><span class="pre">ace_manual</span></code> in the current work
+directory.</p>
+<p>Other useful option is to extract the Nastran/Optran CAE example jobs that are
+used throughout the tutorials in this manual. To do so, the name of the example
+reference job, e.g. <code class="docutils literal notranslate"><span class="pre">ms2dof</span></code>, should be specified along with option
+<code class="docutils literal notranslate"><span class="pre">--extract_example</span></code> in following manner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># brief overview of access to the documentation</span>
+ace<span class="w"> </span>doc<span class="w"> </span>--extract_example<span class="w"> </span>ms2dof
+</pre></div>
+</div>
+<p>Which creates a local copy of the specified reference job in the current work
+directory for use in the corresponding tutorial. In case a non-existing example
+name is provided a list of available reference job is displayed.</p>
+</section>
+<section id="sub-command-license">
+<h4>Sub-command license<a class="headerlink" href="#sub-command-license" title="Link to this heading">¶</a></h4>
+<p>The ACE <em>license</em> mode bundles all license specific operation and is accessed
+using the sub-command <code class="docutils literal notranslate"><span class="pre">license</span></code>. Typically this mode is of interest during the
+installation of ACE or in case license issues are experienced.  The built-in
+usage help function gives an overview of the available options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ace<span class="w"> </span>license<span class="w"> </span>-h
+</pre></div>
+</div>
+<p>yields (header lines are blended out for brevity):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ace license [-h] [-c] [-u UPDATE] [-o]
+
+options:
+  -h, --help            show this help message and exit
+  -c, --check           check license status
+  -u UPDATE, --update UPDATE
+                        Update license file
+  -o, --opensource      Show license info of open source packages
+</pre></div>
+</div>
+<p>The option <code class="docutils literal notranslate"><span class="pre">-c</span></code> / <code class="docutils literal notranslate"><span class="pre">--check</span></code> is used to verify the validity of the license
+file and to display some additional information about the license:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>========================================================================
+                             ACE 2025.006e
+                  Autonomous Computational Experiments
+========================================================================
+                    Visit us: https://www.cdh-ag.com
+                 Contact us: mailto:support@cdh-ag.com
+                 Copyright CDH AG. All rights reserved.
+========================================================================
+
+Starting on 24-Mar-2025 at 13:35:21 +0100
+Main process ID : 2310157
+
+System information
+    cpu-type    : AMD EPYC 9334 32-Core Processor
+    cpu-sockets : 2
+    cpu-threads : 64
+    cpu-cores   : 64
+    cpu-avx     : [&#39;avx&#39;, &#39;avx2&#39;, &#39;avx512&#39;]
+    architecture: x86_64
+    memory GB   : 1511
+    hostname    : hd941.cdh.com
+    os          : posix
+    platform    : linux
+    encoding    : utf-8
+    process-id  : 2310157
+    python      : 3.10.16
+    username    : johndoe
+    script      : /xxxxx/ace/__main__.py
+    prefix      : /xxxxx/cae_lib/2025a/nvh/envs/caelib_dev_py310
+
+Received command line input arguments
+    subparser   : license
+    version     : False
+    check       : True
+    update      : None
+    opensource  : False
+
+Starting operation mode: license
+
+License information
+    Program version : ACE 2025.006e
+    Build date      : 24-Mar-2025
+    Licensed to     : {COMPANY}
+    License code    : 2ba7b4d8bada7813be3ff8affcf01559e8881a26c20dcb8ca8d5f2777af06b82
+    License file    : /xxxxxx/ace/license/license_ACE_XXX_exp2025_04.lic
+<span class="hll">    Expiry date     : 2025-04-15
+</span><span class="hll">    Days remaining  : 22
+</span>
+   ***INFO: License of CDH/ACE expires in 22 days
+            Company: {COMPANY}, Region: GERMANY
+
+   ***WARNING: License expires in 22 days.
+</pre></div>
+</div>
+<p>where typically the last 2 lines regarding the license expiry date are of
+particular interest.  For further details about the license mode, reference is
+made to the ace installation manual.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2025, CDH AG.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

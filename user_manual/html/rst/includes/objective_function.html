@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; User Manual 2025a documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=28445a45" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my_styles.css?v=b6557435" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=64635090" />
+    <script src="../../_static/documentation_options.js?v=5e98d239"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../../_static/ace_32x32_small.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/ace_logo_html.png" alt="Logo of User Manual"/>
+            </a></p>
+<h1 class="logo"><a href="../../index.html">User Manual</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage_commands.html">Commands and modes of operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_project.html">Setup a new ACE project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../objective.html">Goal of optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ace_file.html">ACE project file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../results_output.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_cards.html">Supported Nastran cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download_pdf.html">Download pdf versions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>In optimization problems, the objective function is the mathematical expression
+that defines the goal that should be achieved. Generally, it is a real-valued
+function whose value should be either minimized or maximized.</p>
+<p>In ACE the objective function is composed from contributions that contain
+information about potentially multiple response target violations as well as
+optionally imposed mass constraint violation. This results in the following
+weighted summation:</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-1">
+<span class="eqno">()<a class="headerlink" href="#equation-objective-function-1" title="Link to this equation">¶</a></span>\[v_{obj} = \frac{w_t\ v_t + w_m\ v_m}{w_t+w_m}\]</div>
+<p>which can be written in alternative form,</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-2">
+<span class="eqno">()<a class="headerlink" href="#equation-objective-function-2" title="Link to this equation">¶</a></span>\[v_{obj} = \frac{w_t\ v_t}{w_t+w_m} + \frac{w_m\ v_m}{w_t+w_m}\]</div>
+<p>with <span class="math notranslate nohighlight">\(v_{obj}\)</span> being the violation of the total objective and weighting
+factors <span class="math notranslate nohighlight">\(w_{t}\)</span> and <span class="math notranslate nohighlight">\(w_{m}\)</span> for response target violation
+<span class="math notranslate nohighlight">\(v_{t}\)</span> and mass constraint violation <span class="math notranslate nohighlight">\(v_{m}\)</span>, respectively.</p>
+<p>Introducing the requirement that weighting factors should add up to 1.0,
+which implies <span class="math notranslate nohighlight">\(w_t = 1 - w_m\)</span>, results in</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-3">
+<span class="eqno">()<a class="headerlink" href="#equation-objective-function-3" title="Link to this equation">¶</a></span>\[v_{obj} = \frac{(1-w_m)\ v_t}{1 - w_m +w_m} + \frac{w_m\ v_m}{1 - w_m+w_m}\]</div>
+<p>which simplifies the final objective function to</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-final">
+<span class="eqno">()<a class="headerlink" href="#equation-objective-function-final" title="Link to this equation">¶</a></span>\[v_{obj} = (1-w_m)\ v_t+ w_m\ v_m\]</div>
+<p>This equation clearly shows the balancing effect of weight <span class="math notranslate nohighlight">\(w_m\)</span> between
+the contribution from the response target violation <span class="math notranslate nohighlight">\(v_t\)</span> and the imposed
+mass constraint <span class="math notranslate nohighlight">\(v_m\)</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The mass weight factor <span class="math notranslate nohighlight">\(w_m\)</span> balances the
+contribution from the response target violation <span class="math notranslate nohighlight">\(v_t\)</span> and the imposed
+mass constraint <span class="math notranslate nohighlight">\(v_m\)</span> in the objective function:</p>
+<div class="math notranslate nohighlight">
+\[v_{obj} = (1-w_m)\ v_t+ w_m\ v_m\]</div>
+<p>A mass weight of 0.0 means only the response target is accounted for during
+optimization, whereas a value of 1.0 implies to concentrate on mass reduction
+regardless of the response target.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2025, CDH AG.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

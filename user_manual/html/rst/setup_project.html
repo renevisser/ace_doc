@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Setup a new ACE project &#8212; User Manual 2025a documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=28445a45" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_styles.css?v=b6557435" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=64635090" />
+    <script src="../_static/documentation_options.js?v=5e98d239"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/ace_32x32_small.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ACE project file" href="ace_file.html" />
+    <link rel="prev" title="Commands and modes of operation" href="usage_commands.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ace_logo_html.png" alt="Logo of User Manual"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">User Manual</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objective.html">Objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_commands.html">Commands and modes of operation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup a new ACE project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#definitions-and-terminology">Definitions and terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-project">Create a new project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-directory-structure">Project directory structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ace_file.html">ACE project file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results_output.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_cards.html">Supported Nastran cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_pdf.html">Download pdf versions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="usage_commands.html" title="previous chapter">Commands and modes of operation</a></li>
+      <li>Next: <a href="ace_file.html" title="next chapter">ACE project file</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="setup-a-new-ace-project">
+<h1>Setup a new ACE project<a class="headerlink" href="#setup-a-new-ace-project" title="Link to this heading">¶</a></h1>
+<p>This section describes some important definitions required to understand the
+remainder of this manual as well as the example manual.
+In addition, an explanation how to setup a new ACE project and what the
+resulting directory structure looks like.</p>
+<section id="definitions-and-terminology">
+<h2>Definitions and terminology<a class="headerlink" href="#definitions-and-terminology" title="Link to this heading">¶</a></h2>
+<p>In order to use and understand ACE effectively, this section explains most
+relevant domain-specific terminology and definitions that are applied throughout
+the program and its manuals.</p>
+<p>Each ACE analysis is associated with an <strong>ACE project</strong> that is basically the
+overal accumulation of all project relevant data and settings, including the
+FE-models that are used in the analysis. All data is gathered in the the
+so-called <strong>ACE project directory</strong>.  This directory encloses all data such that
+an ace project directory can always be archived (e.g. zipped) and copied or send
+to any other location without compromising the ability to rerun or restart the
+ACE analysis. The <strong>ace project file</strong> contains all settings for the ace run and
+hence it can be seen as the central “input deck” for ace.  The ace project
+directory always ends with suffix <code class="docutils literal notranslate"><span class="pre">${project_name}_ace</span></code> whereas the ace
+project file is `` indicated with file extension <code class="docutils literal notranslate"><span class="pre">${project_name}.ace</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">${project_name}</span></code> is the user specifed name for the ace project.</p>
+<p>A <strong>batch</strong> is a collection of Nastran/Optran simulation variants/jobs that is
+computed within a single learning cycle of ACE (see overal flowschedule in
+<a class="reference internal" href="introduction.html#fig-ace-flow-schedule"><span class="std std-numref">Fig. 3</span></a>).  All data for each batch is gathered in a
+<strong>batch directory</strong>, identified by name <code class="docutils literal notranslate"><span class="pre">batchXX</span></code> where two digits <code class="docutils literal notranslate"><span class="pre">XX</span></code>
+represent the number of the batch. The first batch, <code class="docutils literal notranslate"><span class="pre">batch00</span></code>, typically
+contains the initial <strong>Design of Experiments</strong> (DOE) that forms the first set of
+experiments for the subsequent machine learning algorithms.</p>
+<p>An individual CAE/Nastran job is called a <strong>simulation variant</strong> (sv), it is
+stored in a job-directory, and typically contains a single <strong>experiment
+sample</strong>, often denoted as just <strong>sample</strong>. Each <strong>sample</strong> represents an unique
+experiment, a unique set of <strong>experiment parameter</strong> values, from the batch of
+experiments.  In engineering sciences, experiment parameters are often named
+<strong>design variables</strong>, e.g. thicknesses of parts. In ACE however, experiment
+paramters can be more much general, for example if the topic of interest would
+be solver performance they could also represent quantities like the number of
+CPU-cores or memory settings applied in the simulation. Also external
+environment variables can be used as experiment parameters basically allowing to
+enable to use every command line tool inside an ACE analysis.  For this reason
+ACE adapts to the more general naming of experiment parameters or -more common
+in the field of data science- <strong>features</strong>. Both the terms <strong>experiment
+parameter</strong> and <strong>feature</strong> are used interchangeably in ACE. From time to time also
+the more specific <strong>design variable</strong> wording can be used in case the parameters
+describe design related features.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case certain applied terminology is unknown or unclear, it might be of
+help to consult the <a class="reference internal" href="abbreviations.html#abbreviations"><span class="std std-ref">list of abbreviations</span></a>.</p>
+</div>
+</section>
+<section id="create-a-new-project">
+<h2>Create a new project<a class="headerlink" href="#create-a-new-project" title="Link to this heading">¶</a></h2>
+<p>Before actually starting any simulations with ACE, the first step consists of
+defining a new <strong>ACE project</strong>.  As explained in section <a class="reference internal" href="usage_commands.html#sub-commands-modes"><span class="std std-ref">sub-commands</span></a>, this is easily accomplished using the
+sub-command <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">new</span></code> which automatically creates a new ACE project based on
+a user specified existing Nastran or Optran simulation input deck which serves
+as reference for new ACE project. It is mandatory to define a name for the
+project using the <code class="docutils literal notranslate"><span class="pre">--name</span></code> input argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create new ace project based on reference input deck:</span>
+ace<span class="w"> </span>new<span class="w"> </span>--name<span class="w"> </span>my_example<span class="w"> </span>--reference<span class="w"> </span>path_ref/input_deck.nas
+
+<span class="c1"># or alternative specification in short format:</span>
+ace<span class="w"> </span>new<span class="w"> </span>-n<span class="w"> </span>my_example<span class="w"> </span>-r<span class="w"> </span>path_ref/input_deck.nas
+</pre></div>
+</div>
+<p>This will result in a new ace project directory called <code class="docutils literal notranslate"><span class="pre">my_example_ace</span></code>
+(mandatory suffix <code class="docutils literal notranslate"><span class="pre">_ace</span></code> is added automatically).  The project directory is
+intended to be completely “self-supporting” without any dependencies outside
+of it. This is, amongst others, useful for archiving and/or moving to any other
+path or location without compromising the ability to restart the ACE analysis
+run.</p>
+<p>For more detailed input options for <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">new</span></code> please refer to section
+<a class="reference internal" href="usage_commands.html#sub-command-new"><span class="std std-ref">sub-commands new</span></a>.</p>
+</section>
+<section id="project-directory-structure">
+<h2>Project directory structure<a class="headerlink" href="#project-directory-structure" title="Link to this heading">¶</a></h2>
+<p>During project setup ACE reads the so-called <strong>reference job</strong> and creates an
+<strong>ACE project directory</strong> where all dependencies of the reference job, including
+the FEM model itself, are collected.  In addition, a couple of predefined
+sub-directories are created resulting in the following main project directory
+structure:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># show 2 level directory structure of ace project directory (after &quot;ace new&quot;):</span>
+<span class="gp">$ </span>tree<span class="w"> </span>-d<span class="w"> </span>-L<span class="w"> </span><span class="m">2</span><span class="w"> </span>my_example_ace
+
+<span class="go">my_example_ace</span>
+<span class="go">├── baseline</span>
+<span class="go">│   ├── bdf_csv_info</span>
+<span class="go">│   └── incl1</span>
+<span class="go">├── batch00</span>
+<span class="go">│   ├── experiments</span>
+<span class="go">│   └── templates</span>
+<span class="go">└── results</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">baseline</span></code> directory contains a -restructured- copy of the specified
+Nastran reference model and will be used as reference or <strong>baseline</strong> variant
+for all further ACE analysis within the project. Note that the baseline model
+is the unmodified original design which contents will never be changed by ace.
+In most cases inside the baseline directory, a sub-directory <code class="docutils literal notranslate"><span class="pre">incl1</span></code> will be
+available that contains all the level-1 include files that were found in the
+main Nastran input deck. In case nested include files were present also higher
+level include directories like <code class="docutils literal notranslate"><span class="pre">incl2</span></code>, <code class="docutils literal notranslate"><span class="pre">incl3</span></code>, etc… will be available.
+Currently ACE allows up to a maximum of 9 levels deep nested include files.
+Furthermore a sub-directory <code class="docutils literal notranslate"><span class="pre">bdf_csv_info</span></code> is available that contains
+-compressed- comma separated files (csv) with parsed bulk-data model
+information.  These csv files are used by ACE to quickly query model information
+that is required in later steps of the ace analysis. Also for some users these
+csv maybe helpful to use in their own custom processes, e.g. filtering of solver
+card entries in tools like Pandas or Microsoft Excel.</p>
+<p>Directory <code class="docutils literal notranslate"><span class="pre">batch00</span></code>, also referred to as the <em>batch directory</em>, is intended
+for the first batch of experiments (simulation jobs) which are typically
+generated at a later stage by a design of experiments (DOE).  The
+<code class="docutils literal notranslate"><span class="pre">experiments</span></code> sub-directory is intended to store the model changes for each
+experiment sample / Nastran simulation job inside the current batch directory.
+Note that ACE only stores the <em>changes</em> of the model for each experiment /
+simulation variant thereby significantly reducing the required amount of disk
+space compared to storing the full model for each experiment.  Finally the
+sub-directory <code class="docutils literal notranslate"><span class="pre">templates</span></code> contains the template file that with generic solver
+cards used as experiment parameters (features) in the ace run. Obviously, these
+sub-directories are merely placeholders until the ACE run is configured and
+started (using <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">run</span></code>).  During the the later ACE run, a new batch
+directory will be created for each learning-cycle. The batch directories are
+numbered monotonically increasing with a 2 digit scheme, e.g. <code class="docutils literal notranslate"><span class="pre">batch01</span></code>,
+<code class="docutils literal notranslate"><span class="pre">batch02</span></code>, …</p>
+<p>Initially, the <code class="docutils literal notranslate"><span class="pre">results</span></code> directory is an empty placeholder for storing all the
+ACE results to be generated at a later stage in the process.</p>
+<p>In addition to the project and its sub-directories, also the so-called ace
+project <em>file</em> is generated, here <code class="docutils literal notranslate"><span class="pre">my_example.ace</span></code>. This project file is used
+to control and configure the ace run, ranging from definition of the experiment
+parameters, setup of CAE submit commands, response and target definitions up to
+controlling the applied machine learning settings.  For a detailed description
+of the ace file reference is made to section <a class="reference internal" href="ace_file.html#ace-project-file"><span class="std std-ref">ace file</span></a>.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2025, CDH AG.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ACE project file &#8212; User Manual 2025a documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=28445a45" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_styles.css?v=b6557435" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=64635090" />
+    <script src="../_static/documentation_options.js?v=5e98d239"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/ace_32x32_small.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Results" href="results_output.html" />
+    <link rel="prev" title="Setup a new ACE project" href="setup_project.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ace_logo_html.png" alt="Logo of User Manual"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">User Manual</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_commands.html">Commands and modes of operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_project.html">Setup a new ACE project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ACE project file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#experiment-parameters-features">Experiment parameters (features)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-of-features-and-ranges">Setup of features and ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-setup-simple-example">Feature setup: simple example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-setup-advanced-examples">Feature setup: advanced examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#response-extraction-and-monitoring">Response extraction and monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#response-evaluation-and-composing">Response evaluation and composing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-values-for-db-scaling">Reference values for dB scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objective-and-target-violations">Objective and target violations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#objective-function">Objective function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#target-and-mass-violation-function">Target and mass violation function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cae-solver-job-submission">CAE solver job submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-functionality-external-tools">Custom functionality (external tools)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doe-ml-and-ai-settings">DOE, ML and AI settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#doe-setup-design-of-experiments">DOE - setup design of experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ml-ai-optimization">ML/AI optimization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="results_output.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_cards.html">Supported Nastran cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_pdf.html">Download pdf versions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="setup_project.html" title="previous chapter">Setup a new ACE project</a></li>
+      <li>Next: <a href="results_output.html" title="next chapter">Results</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="ace-project-file">
+<h1>ACE project file<a class="headerlink" href="#ace-project-file" title="Link to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>During creation of a new ACE project, see section
+<a class="reference internal" href="setup_project.html#setup-a-new-ace-project"><span class="std std-ref">setup new ace project</span></a> for details,
+automatically a predefined example
+of an ACE project file (also referred to as ACE input deck) has been written
+to the project directory.
+This project file (*.ace) contains all relevant settings required to configure and
+run an ACE analysis. Note that most of the default settings that are written to
+the auto-generated ace file can be pre-configured during installation using
+the <code class="docutils literal notranslate"><span class="pre">ace_default_settings.toml</span></code> system-wide configuration file
+(see Installation manual for further details). Doing so is highly recommended such
+that users do not need to modify any system relevant settings manually over and
+over again (e.g. setup of CAE queuing system is likely the same for all users and
+does not change between ACE runs).
+In general, the goal is to keep the ace file as self-explaining as possible to avoid
+that users need to refer to the documentation frequently. Furthermore,
+the ace file itself is interpreted as python code and as a
+consequence it offers many options for further automation by the user (e.g. define
+intermediate variables, for-loops, if/else statements, etc…).</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>For easier setup and preventing errors, it is highly recommended to configure
+your text editor such that by default
+python syntax highlighting is used for ACE project files (*.ace).</p>
+</div>
+<p>Purpose of the ACE project file is to control all possible settings in various
+phases of the self-learning loop as shown in figure <a class="reference internal" href="#fig-ace-cycle-phases"><span class="std std-numref">Fig. 3</span></a>.</p>
+<figure class="align-center" id="id1">
+<span id="fig-ace-cycle-phases"></span><a class="reference internal image-reference" href="../_images/ace_overview_learn_cycle.png"><img alt="ace self-learning cycles" src="../_images/ace_overview_learn_cycle.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Overview of various stages/phases in the ACE workflow (configurable using
+the project file)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In order to do, the ACE file is organized in a number of sections each
+related to specific operations of different phases in the run, as listed below:</p>
+<ul class="simple">
+<li><p><strong>Setup of experiment parameters and variations</strong>: definition of the experiment parameters
+(design variables) to be investigated, e.g. thickness T of PSHELL with ID 50 and 60.
+This also includes specification of variation ranges of each experiment parameter.
+For example, some parameters may vary continuously +/-50% around their baseline value while
+others may be chosen from a few prescribed discrete values only
+(<a class="reference internal" href="#experiment-parameters-features"><span class="std std-ref">details</span></a>).</p></li>
+<li><p><strong>Response extraction &amp; monitoring</strong>: defines the response quantities that should
+be monitored / extracted from the CAE analysis results.
+Furthermore, a combination and/or transformation of these quantities can be defined
+before assigning them to a target for optimization purposes
+(<a class="reference internal" href="#response-extraction-and-monitoring"><span class="std std-ref">details</span></a>).</p></li>
+<li><p><strong>Targets</strong>: objective and target curve specification for machine learning
+reinforced optimization, e.g. minimize (objective)
+the pressure response at node ID 100 below a specific target curve
+(<span class="xref std std-ref">details</span>).</p></li>
+<li><p><strong>CAE solver job submission</strong>: CAE job submit command settings,
+e.g. how to submit a Nastran job to an HPC queuing system
+(<a class="reference internal" href="#cae-solver-job-submission"><span class="std std-ref">details</span></a>).</p></li>
+<li><p><strong>Post-CAE commands</strong>: optionally define custom scripts or external programs that
+run after the CAE jobs have completed, e.g. do some custom post-processing steps
+on the CAE results before ACE starts collecting the responses in the dataminer phase
+(<a class="reference internal" href="#custom-functionality-external-tools"><span class="std std-ref">details</span></a>).</p></li>
+<li><p><strong>DOE and ML settings</strong>: definition of the initial design of experiment (DOE)
+settings as well as potential machine learning and AI-agent settings for the actual
+learning and prediction phase
+(<a class="reference internal" href="#doe-ml-and-ai-settings"><span class="std std-ref">details</span></a>).</p></li>
+</ul>
+<p>Each of these topics is explained in more detail in the following sub-sections.</p>
+</section>
+<section id="experiment-parameters-features">
+<h2>Experiment parameters (features)<a class="headerlink" href="#experiment-parameters-features" title="Link to this heading">¶</a></h2>
+<p>A typical goal of any design of experiments (DOE) or optimization run is
+to investigate the influence of some experiment parameters, also referred to
+as features or design variables, on the response or outcome of a system.
+ACE enables a powerfull yet user-friendly,
+robust and quick way of setting up such experiment parameters as well as the DOE itself.
+It, for example, is able to read Nastran based models, extract all relevant information and modify
+the input deck by itself such that there is no need for the user
+to do cumbersome manual changes to the model.</p>
+<p>Setting up an initial DOE essentially requires 3 types of information to be provided:</p>
+<ul class="simple">
+<li><p><strong>What experiment parameters</strong> to change? (e.g. solver card / field:  PSHELL / T)</p></li>
+<li><p><strong>How much and what type of variation (range)</strong> is allowed? (e.g. T = 1.0 - 2.0, continuous)</p></li>
+<li><p><strong>How to sample</strong> the experiments in the DOE? (e.g. Latin Hypercube Sampling)</p></li>
+</ul>
+<p>This section deals with the first two items whereas section
+<a class="reference internal" href="#doe-ml-and-ai-settings"><span class="std std-ref">DOE, ML and AI</span></a> explains
+what options for the DOE sampling are available.</p>
+<p>Basically, ACE is able to define almost everything as an experiment parameter (feature)
+although for engineering purposes within the Nastran context, the most
+commonly used features consist of typical solver card / field combinations (e.g. PSHELL/T
+for optimization of shell thicknesses). To stay consist with familiar naming, ACE aligns
+to the solver card naming found in the Nastran Quick Reference Guide as much as possible.</p>
+<p>In most cases property (e.g. PSHELL/T, PELAS/K) and material cards (e.g. MAT1/E, MAT1/RHO)
+are of interest and these are widel covered in ACE. Furthermore, certain element types
+like CONM2/M might be of interest for identifying their influence on the response.
+In addition, other types of cards like the Nastran PARAM1 card can be used in
+DOE or optimization studies or for example the EIGRL card to perform benchmarks.
+For this reason the more general naming “feature” or “experiment parameter” is
+preferred above the more restrictive model related terminology of “design variable”.</p>
+<p>For a full list of Nastran cards that are supported as experiment parameters,
+reference is made to <a class="reference internal" href="supported_cards.html#tab-supported-cards-appendix"><span class="std std-numref">Table 4</span></a>.</p>
+<section id="setup-of-features-and-ranges">
+<h3>Setup of features and ranges<a class="headerlink" href="#setup-of-features-and-ranges" title="Link to this heading">¶</a></h3>
+<p>The logic that ACE uses to setup solver card based experiment parameters
+(features) is illustrated in figure <a class="reference internal" href="#fig-parameter-logic"><span class="std std-numref">Fig. 4</span></a>.</p>
+<figure class="align-center" id="id2">
+<span id="fig-parameter-logic"></span><a class="reference internal image-reference" href="../_images/parameter_logic.png"><img alt="parameter logic in ace" src="../_images/parameter_logic.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Logic for solver card based ACE experiment parameter setup</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The setup procedure involves following operations, each controlled in
+the project file using a specific function:</p>
+<ul>
+<li><p>function <strong>card</strong>: Selection of solver cards and fields, for example to select
+the thickness field T of PSHELL solver cards with IDs 30, 50, 60:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># select thickness of 3 pshell cards:</span>
+<span class="n">pshell_t_example</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;PSHELL&#39;</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This resulting -arbitrary named- python object <code class="docutils literal notranslate"><span class="pre">pshell_t_example</span></code> can be further
+used in the <strong>param</strong> function (see below) to link it to a variation range.</p>
+</li>
+<li><p>function <strong>range</strong>: Define a variation range (bounds) and type, for example
+to use +/-50% variation use a relative range:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define relative range +/-50% (relative to initial baseline value):</span>
+<span class="n">range_50pct</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;rel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>again the name <code class="docutils literal notranslate"><span class="pre">range_50pct</span></code> can be chosen freely and in a next step it can be
+assigned to one or more experiment parameters previously selected by the card
+function.</p>
+<p>ACE also allows definitions of absolute ranges by using <code class="docutils literal notranslate"><span class="pre">type=abs</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define absolute range:</span>
+<span class="n">range_2_4</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>alternatively also <em>discrete stepped</em> ranges can be defined:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define absolute discrete range with equidistant steps of 0.1:</span>
+<span class="n">range_2_4_step0p1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+
+<span class="c1"># define relative discrete range +/-50% with equidistant steps of 5%:</span>
+<span class="n">range_50pct_step5pct</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;rel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or also <em>discrete</em> ranges for <em>specific values</em> can be defined:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define absolute discrete range for selected values:</span>
+<span class="n">range_values_abs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+
+<span class="c1"># define relative discrete range for selected values:</span>
+<span class="n">range_values_rel</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;rel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The initial values for the relative range specifications are
+taken automatically from the baseline model.</p>
+<p>Note that <strong>range</strong> function in ACE is not to be confused with
+the standard python range function from python.</p>
+</li>
+<li><p>function <strong>param</strong>: finally, experiment parameters can be setup
+by combining the <strong>card</strong> selection with an variation <strong>range</strong>, for example
+to create 3 experiment parameters (features) of the selected
+PSHELL cards, field T with a +/-50% relative range:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup 3 pshell experiment parameters (features):</span>
+<span class="n">param_pshell_t</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">pshell_t_example</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_50pct</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>note that the existing range definition can be re-assigned to other cards as well.</p>
+</li>
+<li><p>function <strong>activate</strong>: several experiment parameters can be predefined
+in the project file but only those that are <em>activated</em> will actually be used
+in the ace analysis.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># activate/select experiment parameters to actually be used in the ace run:</span>
+<span class="n">activate</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">param_pshell_t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For using multiple types of experiment paremeters a list of of parameters
+should be provided to the activation function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># activate/select multiple experiment parameters using a list:</span>
+<span class="n">params_to_activate</span> <span class="o">=</span> <span class="p">[</span><span class="n">param_pshell_t</span><span class="p">,</span> <span class="n">param_mat1_rho</span><span class="p">,</span> <span class="n">param_pbush_k3</span><span class="p">]</span>
+<span class="n">activate</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">params_to_activate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This allows to switch between different types of ace studies
+predefined in a single project file by just switiching the parameters
+that are activated (e.g. switching from MAT1/E optimization run to MAT1/RHO
+optimization run would just require to change the active parameters).</p>
+</li>
+</ul>
+<p>After creating a new ACE project, the auto-generated project file (*.ace)
+contains a description of these functions along with a number of self-explaining
+examples of <strong>card</strong>/<strong>range</strong>/<strong>param</strong>/<strong>activate</strong> function usage.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Like Nastran, ACE is sensitive to data types:  specification of
+an “int” (e.g. <strong>5</strong>) differs from specification of a “real/float” (e.g. <strong>5.0</strong>)</p>
+</div>
+<p>As a reference, a simple and more advanced scenarios are provided in the
+following examples.</p>
+</section>
+<section id="feature-setup-simple-example">
+<h3>Feature setup: simple example<a class="headerlink" href="#feature-setup-simple-example" title="Link to this heading">¶</a></h3>
+<p>A simple example to demonstrate the logic to setup and activate 3 solver cards
+of type PSHELL with selected field thickness T as feature / experiment
+parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># select thickness of 3 pshell cards:</span>
+<span class="n">pshell_t_example</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;PSHELL&#39;</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+
+<span class="c1"># define relative range +/-50% (relative to initial baseline value):</span>
+<span class="n">range_50pct</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;rel&#39;</span><span class="p">)</span>
+
+<span class="c1"># setup 3 pshell experiment parameters (features):</span>
+<span class="n">param_pshell_t</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">pshell_t_example</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_50pct</span><span class="p">)</span>
+
+<span class="c1"># activate/select experiment parameters using a list:</span>
+<span class="n">params_to_activate</span> <span class="o">=</span> <span class="p">[</span><span class="n">param_pshell_t</span><span class="p">]</span>
+<span class="n">activate</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">params_to_activate</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="feature-setup-advanced-examples">
+<h3>Feature setup: advanced examples<a class="headerlink" href="#feature-setup-advanced-examples" title="Link to this heading">¶</a></h3>
+<p>A more complex example using a mix of relative and absolute for both continuous
+and discrete ranges assigned to multiple types of experiment parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define some ids to select solver cards:</span>
+<span class="n">ids_shell</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<span class="c1"># use a series to enable + / - operations for excluding and adding ids:</span>
+<span class="c1"># card ids not available in the model will be filtered out automatically</span>
+<span class="n">ids_mat1_50_200</span> <span class="o">=</span> <span class="n">series</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ids_mat1</span> <span class="o">=</span> <span class="n">ids_mat1_50_200</span> <span class="o">-</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">190</span><span class="p">]</span> <span class="o">+</span> <span class="mi">500</span>
+<span class="c1"># add ids 200..250 to &quot;ids_mat1&quot; using += operation:</span>
+<span class="n">ids_mat1</span> <span class="o">+=</span> <span class="n">series</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+
+<span class="c1"># select pshell and mat1 cards using the defined ids:</span>
+<span class="n">pshell_t</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;PSHELL&#39;</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="n">ids_shell</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+<span class="n">pshell_nsm</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;PSHELL&#39;</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="n">ids_shell</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;NSM&#39;</span><span class="p">)</span>
+<span class="n">mat1_rho</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;MAT1&#39;</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="n">ids_mat1</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;RHO&#39;</span><span class="p">)</span>
+<span class="c1"># select for a single mat1 card field E:</span>
+<span class="n">mat1_e</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;MAT1&#39;</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">)</span>
+
+<span class="c1"># define relative range +/-50% (relative to initial baseline value):</span>
+<span class="n">range_50pct</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;rel&#39;</span><span class="p">)</span>
+<span class="c1"># absolute continuous range:</span>
+<span class="n">range_abs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+<span class="c1"># relative stepped discrete range:</span>
+<span class="n">range_10pct_disc</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;rel&#39;</span><span class="p">)</span>
+<span class="c1"># discrete values (absolute):</span>
+<span class="n">range_val</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">210.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+
+<span class="c1"># setup 3 pshell experiment parameters (features):</span>
+<span class="n">param_pshell_t</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">pshell_t</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_50pct</span><span class="p">)</span>
+<span class="n">param_pshell_nsm</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">pshell_nsm</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_abs</span><span class="p">)</span>
+<span class="n">param_mat1_rho</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">mat1_rho</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_10pct_disc</span><span class="p">)</span>
+<span class="n">param_mat1_e</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">mat1_e</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_range_val</span><span class="p">)</span>
+
+<span class="c1"># activate/select experiment parameters to use in ace run</span>
+<span class="c1"># note that &quot;param_pshell_nsm&quot; is not activated:</span>
+<span class="n">params_to_activate</span> <span class="o">=</span> <span class="p">[</span><span class="n">param_pshell_t</span><span class="p">,</span> <span class="n">param_mat1_rho</span><span class="p">,</span> <span class="n">param_mat1_e</span><span class="p">]</span>
+<span class="n">activate</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">params_to_activate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This second example clearly shows the easy to follow logical workflow of
+setting up parameter definitions as well as some powerfull mechanisms
+that can be applied (e.g. boolen operations on ids or setup of
+hybrid continuous and discrete ranges for the design of experiments).</p>
+<p>Apart from bulk data solver cards like properties or materials, also
+other types of features can be defined a illustrated in the following
+example. In this example the goal could for example be to investigate
+solver run time as well accuracy in dependence of parameters like
+AMLSNCPU and EIGRL cards for both structure and fluid:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># select solver cards to use as features (experiment parameters)</span>
+<span class="c1"># Nastran PARAM cards (with numeric value in field &quot;V1&quot;) can also be a feature:</span>
+<span class="c1"># PARAM cards are referenced using a string as &quot;id&quot; (e.g. id=&#39;snorm&#39;)</span>
+<span class="n">cards_param_amlsncpu</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;param&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;amlsncpu&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;v1&#39;</span><span class="p">)</span>
+<span class="c1"># select structural EIGRL card 100 (note: &quot;v2&quot; is the upper frequeny limit):</span>
+<span class="n">cards_eigrl_struc</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;eigrl&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;v2&#39;</span><span class="p">)</span>
+<span class="n">cards_eigrl_fluid</span> <span class="o">=</span> <span class="n">card</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;eigrl&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;v2&#39;</span><span class="p">)</span>
+
+<span class="c1"># define range to vary the experiment paremeter values:</span>
+<span class="n">range_ncpu</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>  <span class="c1"># note: ncpu is of data type &quot;int&quot;</span>
+<span class="n">range_eigrl_struc</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">600.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1200.0</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+<span class="n">range_eigrl_fluid</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1800.0</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">400.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+
+<span class="c1"># create experiment paramaters (features) from defined cards and ranges:</span>
+<span class="n">exppar_param_amlsncpu</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">cards_param_amlsncpu</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_ncpu</span><span class="p">)</span>
+<span class="n">exppar_eigrl_struc</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">cards_eigrl_fluid</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_eigrl_struc</span><span class="p">)</span>
+<span class="n">exppar_eigrl_fluid</span> <span class="o">=</span> <span class="n">param</span><span class="p">(</span><span class="n">card</span><span class="o">=</span><span class="n">cards_eigrl_fluid</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_eigrl_fluid</span><span class="p">)</span>
+
+<span class="c1"># activate/select experiment parameters to use in ace run</span>
+<span class="c1"># note it is allowed to break -conform python rules- over multiple lines</span>
+<span class="n">params_to_activate</span> <span class="o">=</span> <span class="p">[</span><span class="n">exppar_param_amlsncpu</span><span class="p">,</span>
+                      <span class="n">exppar_eigrl_struc</span><span class="p">,</span>
+                      <span class="n">exppar_eigrl_fluid</span><span class="p">]</span>
+<span class="n">activate</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">params_to_activate</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="response-extraction-and-monitoring">
+<h2>Response extraction and monitoring<a class="headerlink" href="#response-extraction-and-monitoring" title="Link to this heading">¶</a></h2>
+<p>In the dataminer phase of ACE, a specified subset of available response
+data is extracted and monitored during the further analysis run.
+The extracted results can later be used for several purposes like optimization,
+robustness studies and or fast-FRF predictions (see section
+<span class="xref std std-ref">target specification</span>).
+ACE extracts CAE this response data from the <strong>punch</strong> file format which
+must be written in <strong>SORT2</strong> format. In case of the Optran solver, some of
+the quantities can also be read from the <strong>csv</strong> format.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>ACE is able to read <strong>punch</strong> (*.pch) data in <strong>SORT2</strong>
+format only</p>
+</div>
+<p>Specification of the response data subset to extract is accomplished
+in project file section <code class="docutils literal notranslate"><span class="pre">results_extractor</span></code>, a python list of dictionaries,
+which needs following keywords for each response curve:</p>
+<ul class="simple">
+<li><p><strong>res_id</strong>: a unique integer that is used to identify the selected response curve (int)</p></li>
+<li><p><strong>subcase_id</strong>: Nastran subcase id of response (int)</p></li>
+<li><p><strong>node_id</strong>: Nastran node/grid id of response (int)</p></li>
+<li><p><strong>quantity</strong>: a string of the quantity to select (e.g. ‘DISP’ or ‘PRES’)</p></li>
+<li><p><strong>dof</strong>: a string of the degree-of-freedom to select (e.g. ‘X’, ‘P’ or ‘MAG’)</p></li>
+<li><p><strong>name</strong>: a string to use as label for the response curve (<em>TODO: reserved, currently not used</em>)</p></li>
+</ul>
+<p>Supported values for standard <strong>node based reponse</strong> quantities and dof are:</p>
+<ul class="simple">
+<li><p><strong>quantity</strong>: DISP, VELO, ACCE, PRES, SPCF</p></li>
+<li><p><strong>dof</strong>: X, Y, Z, MAG, RX, RY, RZ, RMAG, P</p></li>
+</ul>
+<p>where acoustic pressure <strong>PRES</strong> should reference degree-of-freedom <strong>P</strong>.
+The prefix <strong>R</strong> in dofs RX, RY and RZ is used to indicate <strong>R</strong>otational components.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike Nastran, ACE consideres <strong>DISP</strong> as DISPLACEMENTS only, whereas
+<strong>PRES</strong> is associated with ACOUSTIC PRESSURE exclusively.</p>
+<p>Furthermore, <strong>PRES</strong> only supports degree-of-freedoms <strong>P</strong> and <strong>MAG</strong>,
+making it more consistent with the underlying physics.</p>
+</div>
+<p>In contrast Nastran, ACE has its own designated dofs available for requesting
+the translational magnitude (MAG) and the rotational magnitude (RMAG).
+In most cases optimization for magnitudes (MAG or RMAG) results in more
+meaningful and desirable results as doing so prevents the optimization
+algorithm to “shift energy” from one dof direction into
+another dof direction (e.g. from Z to X direction). For vectorial quantities
+like DISP or ACCE, both the translational magnitude MAG and the
+rotational magnitude RMAG are computed according
+equations <a class="reference internal" href="#equation-magnitudes">(1)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-magnitudes">
+<span class="eqno">(1)<a class="headerlink" href="#equation-magnitudes" title="Link to this equation">¶</a></span>\[ \begin{align}\begin{aligned}\text{MAG} = \sqrt{X^2 + Y^2 + Z^2}\\\text{RMAG} = \sqrt{RX^2 + RY^2 + RZ^2}\end{aligned}\end{align} \]</div>
+<p>Multiple responses can be easily select by adding more dictionary lines to the
+<code class="docutils literal notranslate"><span class="pre">results-extractor</span></code> list, e.g.
+to select the displacement magnitude of node (grid) 200 of subcase 10
+and the pressure of node 1000 of subcase 40:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The request format should be a python list containing dictionaries, e.g. [{...}, {...}]</span>
+<span class="n">results_extractor</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;DISP&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;MAG&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;PRES&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">},</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>In case of responses resulting from a Nastran <strong>RANDOM</strong> analysis
+the <code class="docutils literal notranslate"><span class="pre">'subcase_id'</span></code> should be replaced by the <code class="docutils literal notranslate"><span class="pre">'random_id'</span></code> respresenting the
+RANDOM ID of nastran run. In addition the quantity for such an analysis
+should be appended with the suffix <code class="docutils literal notranslate"><span class="pre">'_PSDF'</span></code> in order to imake sure the Power Spectral
+Density Function curve is extracted (e.g. <code class="docutils literal notranslate"><span class="pre">'ACCE_PSDF'</span></code> instead of normal <code class="docutils literal notranslate"><span class="pre">'ACCE'</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request for a normal response result and random analysis PSDF result:</span>
+<span class="n">results_extractor</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;ACCE&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">},</span>
+<span class="hll">    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;random_id&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;ACCE_PSDF&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">},</span>
+</span>    <span class="p">]</span>
+</pre></div>
+</div>
+<p>The <strong>integral panel based quantity ERP</strong> is also supported, should however
+be referenced using the <strong>panel</strong> name instead of the degree of freedom as is
+the case for the nodal based quantities:</p>
+<ul class="simple">
+<li><p><strong>quantity</strong>: ERP</p></li>
+<li><p><strong>panel</strong>: name of panel to be used (str)</p></li>
+</ul>
+<p>For example to select the equivalent radiated power (ERP) for a panel
+named “ROOF” as response id 5, the request is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The request format should be a python list containing dictionaries, e.g. [{...}, {...}]</span>
+<span class="n">results_extractor</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># select ERP for a single panel (caution: use &#39;panel&#39; instead of &#39;dof&#39;):</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;ERP&#39;</span><span class="p">,</span> <span class="s1">&#39;panel&#39;</span><span class="p">:</span> <span class="s1">&#39;ROOF&#39;</span><span class="p">},</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that Nastran/Optran punch files also contain the ERP summed over all
+the panels which can be easily added for monitoring or optimization purposes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The request format should be a python list containing dictionaries, e.g. [{...}, {...}]</span>
+<span class="n">results_extractor</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># select ERP for a single panel (caution: use &#39;panel&#39; instead of &#39;dof&#39;):</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;ERP&#39;</span><span class="p">,</span> <span class="s1">&#39;panel&#39;</span><span class="p">:</span> <span class="s1">&#39;ROOF&#39;</span><span class="p">},</span>
+    <span class="c1"># select ERP for a the sum over all panels:</span>
+<span class="hll">    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;ERP&#39;</span><span class="p">,</span> <span class="s1">&#39;panel&#39;</span><span class="p">:</span> <span class="s1">&#39;ALLPANEL&#39;</span><span class="p">},</span>
+</span>    <span class="p">]</span>
+
+<span class="c1"># note: NX-Nastran uses &#39;TOTAL&#39; instead of &#39;ALLPANEL&#39; for the panel summed ERP</span>
+</pre></div>
+</div>
+<p>Note that the ERP quantity is not supported in combination with RANDOM analysis.</p>
+<p>For every batch (learn cycle), the dataminer process step will collect the
+specified response results from the individual simulation variants (CAE jobs)
+and store in a cdh5 file format in the corresponding batch directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each batch directory contains a cdh5 file with the requested response
+data collected from the individual simulation/CAE jobs in the batch.
+For convenient customization, ACE provides an easy to way
+to access this data in Python using the supplied cdh5 reader API.</p>
+</div>
+<p>After the dataminer collected the requested primary responses in the
+cdh5 file for later usage in machine learning, a batch mode plotting
+process generates overview pictures of each of the extracted
+response curves in the corresponding batch directory.
+This enables users to quickly get an early stage impression of
+the batch responses well before the full, multi-batch, ace analysis
+is completed. An example of such an overview plot is show below in <a class="reference internal" href="#fig-batch-responses"><span class="std std-numref">Fig. 5</span></a>.</p>
+<figure class="align-center" id="id3">
+<span id="fig-batch-responses"></span><a class="reference internal image-reference" href="../_images/exp_res_batch00_freq_lc0000158_node00000001_ACCE_MAG_lin.png"><img alt="indication of batch responses" src="../_images/exp_res_batch00_freq_lc0000158_node00000001_ACCE_MAG_lin.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Example of batch response overview (available for each requested primary result)</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>For structural quantities the plots are generated in linear and dB scaling,
+for pressure and erp quantities in addition A-weighted overview plots
+are exported. These png plot files with filename scheme ‘exp_res_batch*.png’
+are created after the dataminer phase in the active batch directory.</p>
+</section>
+<section id="response-evaluation-and-composing">
+<h2>Response evaluation and composing<a class="headerlink" href="#response-evaluation-and-composing" title="Link to this heading">¶</a></h2>
+<p>In the previous section the selection of primary response data that is directly
+available in the punch file has been discussed. In many cases, however,
+looking at a single
+response curve does not make too much sense because it is generally not
+robust to optimize for a isolated response location.
+For this reason ACE offers an option
+to combine and evaluate multiple partial responses into a so-called <em>composed
+response</em> quantity. The mechanism to do so is illustrated in the
+<code class="docutils literal notranslate"><span class="pre">results_evaluator</span></code> code block of the ACE project file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine multiple responses by evaluation using an expression:</span>
+<span class="c1"># The partial responses are referenced by ${res_idX} with X the res_id, e.g. ${res_id3}.</span>
+<span class="c1"># The request format should be a python list containing dictionaries, e.g. [{...}, {...}]</span>
+<span class="n">results_evaluator</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;expression&#39;</span><span class="p">:</span> <span class="s1">&#39;max($</span><span class="si">{res_id0}</span><span class="s1">, $</span><span class="si">{res_id1}</span><span class="s1">, $</span><span class="si">{res_id2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;p_max&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;expression&#39;</span><span class="p">:</span> <span class="s1">&#39;rms($</span><span class="si">{res_id0}</span><span class="s1">, $</span><span class="si">{res_id1}</span><span class="s1">, $</span><span class="si">{res_id2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;p_rms&#39;</span><span class="p">},</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>In this example, 2 composed response curves are requested and stored as
+result id 100 and 101. The first composed response curve yields the maximum
+of the 3 partial response curves (using abs values), whereas the second
+response curve with id 101 generates the RMS response curve over the 4
+individual curves. Note that these operations in the expression are applied
+for each frequency in the partial responses, so the composed response is again
+a vector with the same number of frequency steps. This imposes the limitation
+that all partial response curves used in the composed response evaluator
+must have the same frequency vector (same number of steps and same
+frequency values). Furthermore all partial responses used in a composed
+response curve must belong to the same quantity type (e.g. all PRES or all DISP).
+It is allowed however to use partial responses from different subcases
+as long as the underlying frequency vectors and quantity types are identical.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The partial responses referenced in a response evalation expression
+must all be of the <strong>same quantity</strong> type (e.g. all PRES) and share an
+<strong>identical frequency vector</strong>.</p>
+</div>
+<p>Supported <strong>multi-response-curve</strong> math functions for expressions consist of:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\min(f_1, f_2, .., f_n)\)</span>: minimum over curves (lower envelope over multiple curves)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\max(f_1, f_2, .., f_n)\)</span>: maximum over curves (upper envelope over multiple curves)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{rms}(f_1, f_2, .., f_n)\)</span>: root mean square over curves</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{mean}(f_1, f_2, .., f_n)\)</span>: mean over curves</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{median}(f_1, f_2, .., f_n)\)</span>: median over curves</p></li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(f_i\)</span> represents the <span class="math notranslate nohighlight">\(i^{th}\)</span> partial response function
+(careful: not to be confused with frequency steps).
+For complex-valued inputs, the functions min, max and rms convert the
+partial responses to absolute values before applying the actual operations. For real-valued
+inputs no upstream absolute operation is applied (e.g. negative real-valued inputs remain negative).</p>
+<p>In addition a few helper functions for <strong>single-response-curve</strong> evaluation are available:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{abs}(f_1)\)</span>: element-wise absolute value over <em>single</em> curve <span class="math notranslate nohighlight">\(f_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{sqrt}(f_1)\)</span>: element-wise square root over <em>single</em> curve <span class="math notranslate nohighlight">\(f_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{power}(f_1, n)\)</span>: element-wise n-th power over <em>single</em> curve <span class="math notranslate nohighlight">\(f_1\)</span> (e.g. n=2 means square)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For complex response functions, ACE currently uses the <strong>absolute values</strong> so
+<strong>phase information is disregarded</strong>.</p>
+</div>
+<p>Furthermore, nested result evaluation expressions are supported to enable
+cascading / break-down of complicated expressions into several simpler sub-expressions.
+For example, following code block first defines 3 sub-expressions which
+can then be used again in the final evaluator expression with id 1000:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The request format should be a python list containing dictionaries, e.g. [{...}, {...}]</span>
+<span class="c1"># Select some primary results available in the Nastran/Optran pch file:</span>
+<span class="n">results_extractor</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">10400</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;PRES&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">10500</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;PRES&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">10400</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;PRES&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">10500</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;PRES&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">},</span>
+    <span class="c1"># note: it is not required to have successive res_id&#39;s (e.g. skip id 4):</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;subcase_id&#39;</span><span class="p">:</span> <span class="mi">222</span><span class="p">,</span> <span class="s1">&#39;node_id&#39;</span><span class="p">:</span> <span class="mi">29500</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;PRES&#39;</span><span class="p">,</span> <span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">},</span>
+    <span class="p">]</span>
+
+<span class="c1"># perform a more complicated nested expressions evaluation:</span>
+<span class="n">results_evaluator</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># create 3 sub-expressions from partial responses:</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;expression&#39;</span><span class="p">:</span> <span class="s1">&#39;max($</span><span class="si">{res_id0}</span><span class="s1">, $</span><span class="si">{res_id1}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;p_max_subcase200&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;expression&#39;</span><span class="p">:</span> <span class="s1">&#39;mean($</span><span class="si">{res_id2}</span><span class="s1">, $</span><span class="si">{res_id3}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;p_mean_subcase300&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;expression&#39;</span><span class="p">:</span> <span class="s1">&#39;3.0*sqrt($</span><span class="si">{res_id5}</span><span class="s1">)+2.0&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;p_mod5&#39;</span><span class="p">},</span>
+    <span class="c1"># use the 3 sub-expressions again for further (nested) evaluation:</span>
+    <span class="p">{</span><span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;expression&#39;</span><span class="p">:</span> <span class="s1">&#39;rms($</span><span class="si">{res_id200}</span><span class="s1">, $</span><span class="si">{res_id300}</span><span class="s1">, $</span><span class="si">{res_id500}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;p_nested&#39;</span><span class="p">}</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>Standard mathematical operators like <span class="math notranslate nohighlight">\(+\)</span>, subtraction <span class="math notranslate nohighlight">\(-\)</span> and
+multiplication <span class="math notranslate nohighlight">\(*\)</span> can be used as well  evaluation as is obvious
+from the above sub-expression with result id 500.</p>
+<p>Just like the primary results that are available directly in the pch file, the
+resulting evaluated responses from the <code class="docutils literal notranslate"><span class="pre">results_extractor</span></code> block can be used
+for further usage in ACE, for example to be used for optimization or
+robustness studies.</p>
+</section>
+<section id="reference-values-for-db-scaling">
+<h2>Reference values for dB scaling<a class="headerlink" href="#reference-values-for-db-scaling" title="Link to this heading">¶</a></h2>
+<p>Especially in the field of acoustics it is very common to apply decibel
+scaling (dB) to visualize the response curves as this logarithmic scaling
+better matches the human perception of sound as compared to linear scaling.
+When converting (response) functions from linear to dB scaling it is common
+to normalize these with respect to a certain reference value, for example
+for acoustic pressure it is common use hearing threshold of 2.0E-5 Pa
+as a reference. However, which reference values are actually used
+can be chosen arbitrary, in the end the reference value just causes a vertical
+offset in the resulting dB curve.</p>
+<p>For each supported response quantity type, ACE provides per default
+a consistent set of reference values that is commonly used for vibration
+and acoustics.
+Naturally, these values can be changed according to the needs of the user.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default reference values in the ace project file can be configured
+centrally in the <code class="docutils literal notranslate"><span class="pre">ace_default_settings.toml</span></code>
+file located in the <code class="docutils literal notranslate"><span class="pre">config</span></code> directory (typically done during installation,
+see ACE installation manual).</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantity specific reference values to be used for dB scaling</span>
+<span class="c1"># (default assumes units mm-ton-s):</span>
+<span class="n">reference_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;disp&#39;</span><span class="p">:</span> <span class="mf">7.958e-09</span><span class="p">,</span>
+               <span class="s1">&#39;velo&#39;</span><span class="p">:</span> <span class="mf">5.0e-05</span><span class="p">,</span>
+               <span class="s1">&#39;acce&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+               <span class="s1">&#39;pres&#39;</span><span class="p">:</span> <span class="mf">2.0e-11</span><span class="p">,</span>
+               <span class="s1">&#39;spcf&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+               <span class="s1">&#39;erp&#39;</span><span class="p">:</span> <span class="mf">1.0e-15</span><span class="p">},</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;rms&#39;</span>  <span class="c1"># treat reference values as &#39;peak&#39; or &#39;rms&#39;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>There is a caveat when dealing with dB reference values that often is a
+source of confusion. “Officially” reference values are defined as
+root mean square (RMS) values which are for harmonic signals related to
+peak amplitude values by the simple relation: <span class="math notranslate nohighlight">\(rms = peak/\sqrt{2}\)</span>.
+The well-known and widely adopted RMS reference value for acoustic
+pressure for example is 2.0E-5 Pa is often mistakenly used as peak
+amplitude value in practial applications.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The commonly used reference value for acoustic pressure is 2.0E-5 Pa (rms)
+which corresponds approximately to the human hearing threshold of
+a sinusoidal wave at 1000 Hz. Using this reference
+value normalizes the sound pressure level (SPL) such that 0 dB corresponds
+to the hearing threshold.</p>
+</div>
+<p>Inconsistent usage of RMS and peak amplitude values
+results in an offset by a factor 2 (or offset of 3dB) when computing
+the autopower level of a signal as illustrated by the following example of an
+sinusoidal (pressure) response function <span class="math notranslate nohighlight">\(Y\)</span> with an
+rms value of 2.0E-5 Pa:</p>
+<div class="math notranslate nohighlight" id="equation-rms-peak">
+<span class="eqno">(2)<a class="headerlink" href="#equation-rms-peak" title="Link to this equation">¶</a></span>\[ \begin{align}\begin{aligned}Y_{rms}(\omega) = \text{2.0E-5 [Pa]}\\Y_{peak}(\omega) = Y_{rms}(\omega) \sqrt{2}\end{aligned}\end{align} \]</div>
+<p>the sound pressure autopower <span class="math notranslate nohighlight">\(S_{YY}\)</span> is computed as:</p>
+<div class="math notranslate nohighlight" id="equation-autopower">
+<span class="eqno">(3)<a class="headerlink" href="#equation-autopower" title="Link to this equation">¶</a></span>\[S_{YY}(\omega) = Y_{rms}^{2}(\omega) = 0.5 Y_{peak}^{2}(\omega) = 0.5 \|Y(\omega)\|^{2}\]</div>
+<p>where factor 0.5 accounts for the conversion from peak to
+RMS values of Y. This factor 0.5 is often forgotten in practical applications
+leading to an offset of approximately -3.0 dB:</p>
+<div class="math notranslate nohighlight" id="equation-autopowerlevel-offset">
+<span class="eqno">(4)<a class="headerlink" href="#equation-autopowerlevel-offset" title="Link to this equation">¶</a></span>\[level_{offset} = 10 log_{10}(0.5) = -3.0103 dB\]</div>
+<p>However, in some cases the user might not want to treat the specified
+reference value as RMS values and instead prefers to use these as
+peak values. This is possible by changing the <code class="docutils literal notranslate"><span class="pre">type</span></code> flag in the
+reference value from <code class="docutils literal notranslate"><span class="pre">rms</span></code> to <code class="docutils literal notranslate"><span class="pre">peak</span></code>. ACE will then internally
+compensate for the factor 0.5 in the autopower computation by pre-multiplying
+the reference value by the factor <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
+<p>Transforming <a class="reference internal" href="#equation-autopower">(3)</a> to dB gives the sound
+power level for the case of type <code class="docutils literal notranslate"><span class="pre">rms</span></code>:</p>
+<div class="math notranslate nohighlight" id="equation-autopower-level-rms">
+<span class="eqno">(5)<a class="headerlink" href="#equation-autopower-level-rms" title="Link to this equation">¶</a></span>\[SPL(\omega) = 10 log_{10}(Y_{rms}^2(\omega)/P^{2}_{ref, rms})\]</div>
+<p>or alternatively for type <code class="docutils literal notranslate"><span class="pre">peak</span></code>:</p>
+<div class="math notranslate nohighlight" id="equation-autopower-level-peak">
+<span class="eqno">(6)<a class="headerlink" href="#equation-autopower-level-peak" title="Link to this equation">¶</a></span>\[SPL(\omega) = 10 log_{10}(Y_{peak}^2(\omega)/P^{2}_{ref, peak})\]</div>
+<p>So if the response spectrum is in peak amplitude values, as is
+typical for most types of Nastran responses, then
+the reference value should also be a peak amplitude.</p>
+</section>
+<section id="objective-and-target-violations">
+<h2>Objective and target violations<a class="headerlink" href="#objective-and-target-violations" title="Link to this heading">¶</a></h2>
+<p>Once the dataminer collected the
+<a class="reference internal" href="#response-extraction-and-monitoring"><span class="std std-ref">primary response</span></a>
+or <a class="reference internal" href="#response-evaluation-and-composing"><span class="std std-ref">composed response</span></a> results,
+the resulting responses can be used for definition of an optimization,
+robustness studies or other types of investigation.</p>
+<p>In order to do so typically some goal (objective) and one or more targets need
+to be defined. Depending on the intentions of the user, several options are
+available to specify both the objective of the investigation as well as the
+underlying response target requirements and optional mass constraints. To be
+able to setup a meaningful optimization problem, the following two sections
+provide some more detailed information on the implementation of the objective and
+target violation functions in ACE.</p>
+<section id="objective-function">
+<h3>Objective function<a class="headerlink" href="#objective-function" title="Link to this heading">¶</a></h3>
+<p>In optimization problems, the objective function is the mathematical expression
+that defines the goal that should be achieved. Generally, it is a real-valued
+function whose value should be either minimized or maximized.</p>
+<p>In ACE the objective function is composed from contributions that contain
+information about potentially multiple response target violations as well as
+optionally imposed mass constraint violation. This results in the following
+weighted summation:</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-1">
+<span class="eqno">(7)<a class="headerlink" href="#equation-objective-function-1" title="Link to this equation">¶</a></span>\[v_{obj} = \frac{w_t\ v_t + w_m\ v_m}{w_t+w_m}\]</div>
+<p>which can be written in alternative form,</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-2">
+<span class="eqno">(8)<a class="headerlink" href="#equation-objective-function-2" title="Link to this equation">¶</a></span>\[v_{obj} = \frac{w_t\ v_t}{w_t+w_m} + \frac{w_m\ v_m}{w_t+w_m}\]</div>
+<p>with <span class="math notranslate nohighlight">\(v_{obj}\)</span> being the violation of the total objective and weighting
+factors <span class="math notranslate nohighlight">\(w_{t}\)</span> and <span class="math notranslate nohighlight">\(w_{m}\)</span> for response target violation
+<span class="math notranslate nohighlight">\(v_{t}\)</span> and mass constraint violation <span class="math notranslate nohighlight">\(v_{m}\)</span>, respectively.</p>
+<p>Introducing the requirement that weighting factors should add up to 1.0,
+which implies <span class="math notranslate nohighlight">\(w_t = 1 - w_m\)</span>, results in</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-3">
+<span class="eqno">(9)<a class="headerlink" href="#equation-objective-function-3" title="Link to this equation">¶</a></span>\[v_{obj} = \frac{(1-w_m)\ v_t}{1 - w_m +w_m} + \frac{w_m\ v_m}{1 - w_m+w_m}\]</div>
+<p>which simplifies the final objective function to</p>
+<div class="math notranslate nohighlight" id="equation-objective-function-final">
+<span class="eqno">(10)<a class="headerlink" href="#equation-objective-function-final" title="Link to this equation">¶</a></span>\[v_{obj} = (1-w_m)\ v_t+ w_m\ v_m\]</div>
+<p>This equation clearly shows the balancing effect of weight <span class="math notranslate nohighlight">\(w_m\)</span> between
+the contribution from the response target violation <span class="math notranslate nohighlight">\(v_t\)</span> and the imposed
+mass constraint <span class="math notranslate nohighlight">\(v_m\)</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The mass weight factor <span class="math notranslate nohighlight">\(w_m\)</span> balances the
+contribution from the response target violation <span class="math notranslate nohighlight">\(v_t\)</span> and the imposed
+mass constraint <span class="math notranslate nohighlight">\(v_m\)</span> in the objective function:</p>
+<div class="math notranslate nohighlight">
+\[v_{obj} = (1-w_m)\ v_t+ w_m\ v_m\]</div>
+<p>A mass weight of 0.0 means only the response target is accounted for during
+optimization, whereas a value of 1.0 implies to concentrate on mass reduction
+regardless of the response target.</p>
+</div>
+</section>
+<section id="target-and-mass-violation-function">
+<h3>Target and mass violation function<a class="headerlink" href="#target-and-mass-violation-function" title="Link to this heading">¶</a></h3>
+<p>In case of single-target problems, the violation of the frequency response
+function <span class="math notranslate nohighlight">\(y(\omega)\)</span> is measured against a specified target function
+<span class="math notranslate nohighlight">\(g(\omega)\)</span> using the so-called target violation function
+<span class="math notranslate nohighlight">\(v(\omega)\)</span>. Depending of the selected <code class="docutils literal notranslate"><span class="pre">type</span></code> setting in the target
+definition of the project file, this target violation function is defined
+differently for each of the available options:</p>
+<dl class="field-list">
+<dt class="field-odd">curve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>measures the target violation linearly (default)</p>
+<div class="math notranslate nohighlight">
+\[v(\omega) = |y(\omega)| - g(\omega)\]</div>
+</dd>
+<dt class="field-even">curve_autopower<span class="colon">:</span></dt>
+<dd class="field-even"><p>measures the quadratic target violation (autopowers)</p>
+<div class="math notranslate nohighlight">
+\[v(\omega) = |y(\omega)|^2 - g^2(\omega)\]</div>
+</dd>
+<dt class="field-odd">max_val<span class="colon">:</span></dt>
+<dd class="field-odd"><p>measures the maximum value where <span class="math notranslate nohighlight">\(y(\omega) &gt; g(\omega)\)</span></p>
+<div class="math notranslate nohighlight">
+\[v(\omega) = \text{max}(|y(\omega)|)\ \forall\ y(\omega) &gt; g(\omega)\]</div>
+</dd>
+<dt class="field-even">min_val<span class="colon">:</span></dt>
+<dd class="field-even"><p>measures the minimum value where <span class="math notranslate nohighlight">\(y(\omega) &lt; g(\omega)\)</span></p>
+<div class="math notranslate nohighlight">
+\[v(\omega) = \text{min}(|y(\omega)|)\ \forall\ y(\omega) &lt; g(\omega)\]</div>
+</dd>
+</dl>
+<p>The response target violation <span class="math notranslate nohighlight">\(v_{t}\)</span> (scalar value) is then again
+defined using the above selected target violation function following</p>
+<div class="math notranslate nohighlight" id="equation-target-violation">
+<span class="eqno">(11)<a class="headerlink" href="#equation-target-violation" title="Link to this equation">¶</a></span>\[v_t = \sum_i^{n_{\omega}}{\frac{v(\omega_i)}{v_{t_\text{baseline}}}}\]</div>
+<p>with <span class="math notranslate nohighlight">\(v_{t_\text{baseline}}\)</span> representing the response target violation of the baseline
+design state and  <span class="math notranslate nohighlight">\(v(\omega_i)\)</span> the violation function evaluated at
+discrete frequencies <span class="math notranslate nohighlight">\(\omega_i\)</span>.</p>
+<p>In case that multiple partial targets are defined, the corresponding target
+violations <span class="math notranslate nohighlight">\({v_t}_j\)</span> are superimposed again using individual weighting
+factors <span class="math notranslate nohighlight">\(w_j\)</span> as defined using setting <code class="docutils literal notranslate"><span class="pre">weight_fac</span></code> in the target specification
+section of the ace project file:</p>
+<div class="math notranslate nohighlight" id="equation-multi-target-violation">
+<span class="eqno">(12)<a class="headerlink" href="#equation-multi-target-violation" title="Link to this equation">¶</a></span>\[v_t = \sum_j^{n_t}{w_j {v_t}_j}\]</div>
+<p>Similarly, the mass constraint violation <span class="math notranslate nohighlight">\(v_m\)</span> is defined as</p>
+<div class="math notranslate nohighlight" id="equation-mass-violation">
+<span class="eqno">(13)<a class="headerlink" href="#equation-mass-violation" title="Link to this equation">¶</a></span>\[v_m = \frac{m_s-m_\text{min}}{m_\text{baseline}}\]</div>
+<p>with <span class="math notranslate nohighlight">\(m_s\)</span> the feature mass of an distinct experiment sample,
+<span class="math notranslate nohighlight">\(m_\text{min}\)</span> the minimum feature mass available in the allowable design
+space (minimum mass possible in within prescribed experiment parameter/feature
+ranges). Again, <span class="math notranslate nohighlight">\(m_\text{baseline}\)</span>, represents the feature mass
+associated with the original unperturbed baseline model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Feature mass</strong> is the portion of the mass that is associated with
+the active experiment parameters (features). Thereby, it represents only the
+mass that can be directly affected by the features. Per definition, the
+feature mass is smaller or equal to the total mass of a model.</p>
+</div>
+<p><strong>TODO: FOLOWING IS NO LONGER CORRECT for w_t = 1.0 - w_m??</strong>
+At the unperturbed baseline state, the target violation <span class="math notranslate nohighlight">\(v_t|_0 = 1.0\)</span> whereas the
+the mass violation will typically be smaller than one (<span class="math notranslate nohighlight">\(v_m|_0&lt;=1.0\)</span>, assuming the
+minimum allowable feature mass <span class="math notranslate nohighlight">\(m_\text{min}\)</span> is larger than zero).</p>
+<p>For the special case that no mass is associated with the experiment parameters,
+e.g. only mount stiffnesses are being investigated, the feature mass is zero and
+the mass constraint is automatically deactivated (<span class="math notranslate nohighlight">\(w_m=0.0\)</span> and <span class="math notranslate nohighlight">\(v_m=0.0\)</span>).</p>
+<p>In essence, the objective function is the core of any optimization problem,
+clearly stating what is to be achieved and providing the measurable criterion
+by which different solutions (feature combinations) are compared and ultimately
+chosen.</p>
+<p>For example, the most frequently used goal is
+to push a certain response <em>below</em> a user defined target curve. In other cases
+however, the goal could be to increase the (dynamic) stiffness of a structure
+<em>above</em> a specified level. Another challenging application is to match
+a response from a CAE analysis <em>onto</em> for example a measured response
+(model validation). This results in 3 elemental different requirements
+with respect to target specification:</p>
+<ul class="simple">
+<li><p><em>minimize</em> a response <em>below</em> a target</p></li>
+<li><p><em>maximize</em> a response <em>above</em> a target</p></li>
+<li><p><em>match</em> a response <em>onto</em> a target</p></li>
+</ul>
+<p>In ACE this is accomplished by introducing a <strong>goal</strong> which can be
+to either <em>min</em>, <em>max</em> or <em>match</em> as illustrated in <a class="reference internal" href="#fig-target-curve-goals"><span class="std std-numref">Fig. 6</span></a>.
+Note that independent of the specified goal, internally ACE will always solve
+some form of minimization problem, e.g. minimize the area A.</p>
+<figure class="align-center" id="id4">
+<span id="fig-target-curve-goals"></span><a class="reference internal image-reference" href="../_images/target_curve_goals.png"><img alt="target curve goals" src="../_images/target_curve_goals.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Definition of <strong>goal</strong> “match”, “min” and “match”.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>All goal/target related settings can be controlled in the <cite>target_settings</cite>
+section of the ACE project file as shown below.
+The target settings block should be a list of dictionaries where each
+dictionary would represent another target in case of multi-target optimization.
+The first setting of a target is the <code class="docutils literal notranslate"><span class="pre">goal</span></code> as described above.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ================================================================================</span>
+<span class="c1"># Target settings (ML optimization)</span>
+<span class="c1"># ================================================================================</span>
+<span class="c1"># Define target per node/quantity:</span>
+<span class="n">target_settings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;goal&#39;</span><span class="p">:</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span>  <span class="c1"># &#39;min&#39;, &#39;max&#39;, &#39;match&#39; (the response) [str]</span>
+     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;curve&#39;</span><span class="p">,</span>  <span class="c1"># &#39;curve&#39; , &#39;max_val&#39;, &#39;min_val&#39; (target type) [str]</span>
+     <span class="s1">&#39;weighting_func&#39;</span><span class="p">:</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span>  <span class="c1"># weighting function for CAE results and ML: None, &#39;A&#39;, &#39;B&#39;, &#39;C&#39; [str]</span>
+     <span class="s1">&#39;scaling_amp&#39;</span><span class="p">:</span> <span class="s1">&#39;lin&#39;</span><span class="p">,</span> <span class="c1"># scaling of amplitude values for CAE results and ML: &#39;lin&#39;, &#39;dB&#39; [str]</span>
+     <span class="s1">&#39;target_val&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0E-5</span><span class="p">)],</span>  <span class="c1"># single point (x,y) defines constant curve (e.g. for max_amp oder const target curve) [list of tuples] CAUTION: must be in same scaling and weighting as scaling_amp and weighting_func</span>
+     <span class="c1"># &#39;target_val&#39;: [(0.0, 0.0), (100.0, 13.0E-5), (110.0, 11.0E-5)],  # manual x-y values that define a coarse target curve [list of tuples] CAUTION: must be in same scaling and weighting as scaling_amp and weighting_func</span>
+     <span class="c1"># &#39;target_file&#39;: &#39;path/target_curve.xy&#39;,  # read target curve from a 2 column blank separated x y file (defaults to batch00/*_sv000/templates/) CAUTION: must be in same scaling and weighting as scaling_amp and weighting_func</span>
+     <span class="s1">&#39;weight_fac&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># weight factor for the current target [float]</span>
+     <span class="s1">&#39;res_id&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># apply this target to which result ID [int]</span>
+    <span class="p">},</span>  <span class="c1"># repeat this block to define multiple targets</span>
+    <span class="p">]</span>  <span class="c1"># (multi-)targets settings must be a list of dicts, e.g. [{...}, {...}]</span>
+</pre></div>
+</div>
+<p>The target <strong>type</strong> describes whether a <em>curve</em> as list of (x,y) points
+is specified or just the min-value (<em>min_val</em>) or max-value (<em>max_val</em>) of
+the response should be used in the optimization:</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">curve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>use the <em>violating area</em> measured according the target goal as target violation</p>
+</dd>
+<dt class="field-even">curve_autopower<span class="colon">:</span></dt>
+<dd class="field-even"><p>use the <em>violating area of the autopowers</em> measured according the target goal as target violation (compared to curve, this puts more weight on high peak values of the response)</p>
+</dd>
+<dt class="field-odd">min_val<span class="colon">:</span></dt>
+<dd class="field-odd"><p>use the <em>minimum value</em> of the response within the target violating frequency range as violation measure (makes sense only with goal=max)</p>
+</dd>
+<dt class="field-even">max_val<span class="colon">:</span></dt>
+<dd class="field-even"><p>use the <em>maximum value</em> of the response within the target violating frequency range as violation measure (makes sense only for goal=min)</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The target violation is computed only in the frequency range where
+response actually violates the specified target goal and curve. This enables
+the user to focus specifically on certain frequency ranges of interest
+whereas leaving other ranges out of scope.</p>
+</div>
+<p>Depending on the nature of the sound (e.g. loudness or spectral content)
+a frequency dependent A, B or C-weighting can be applied
+using setting <code class="docutils literal notranslate"><span class="pre">weighting_func</span></code>. This is most often applied in combination
+with option <code class="docutils literal notranslate"><span class="pre">scaling_amp</span></code> being set to ‘dB’ instead of the default
+linear scaling (‘lin’).
+For example to use an A-weighted pressure response in dB scaling
+the appropriate setting would be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of using dB(A) scaling:</span>
+<span class="s1">&#39;weighting_func&#39;</span><span class="p">:</span> <span class="s1">&#39;dB&#39;</span><span class="p">,</span>  <span class="c1"># weighting function: None, &#39;A&#39;, &#39;B&#39;, &#39;C&#39; [str]</span>
+<span class="s1">&#39;scaling_amp&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="c1"># scaling of values: &#39;lin&#39;, &#39;dB&#39; [str]</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The precribed target curve using the <code class="docutils literal notranslate"><span class="pre">target_val</span></code> setting must
+be consistent with the settings of <code class="docutils literal notranslate"><span class="pre">scaling_amp</span></code> and <code class="docutils literal notranslate"><span class="pre">weighting_func</span></code>.
+For example, if the scaling is set to ‘dB’ then the specified target curve
+values must as well be in dB values (using the same reference as
+specified in the
+<a class="reference internal" href="#reference-values-for-db-scaling"><span class="std std-ref">dB reference section</span></a>).</p>
+</div>
+<p>To actually prescribe the target curve two options are available, either the
+field <code class="docutils literal notranslate"><span class="pre">target_val</span></code> should be provided or alternatively <code class="docutils literal notranslate"><span class="pre">target_file</span></code>
+can be applied to read the target curve definition directly from file.
+As ab example, the target curve as shown in figure <a class="reference internal" href="#fig-target-curve-example"><span class="std std-numref">Fig. 7</span></a>
+will be specified using both options.</p>
+<figure class="align-center" id="id5">
+<span id="fig-target-curve-example"></span><a class="reference internal image-reference" href="../_images/target_curve_example.png"><img alt="target curve example" src="../_images/target_curve_example.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Example of 4 point target curve.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>Option 1, specify <code class="docutils literal notranslate"><span class="pre">target_val</span></code>: either a single <span class="math notranslate nohighlight">\([(x, y)]\)</span> point representing a constant horizontal curve
+or a list of points <span class="math notranslate nohighlight">\([(x_1, y_1), \ldots, (x_n, y_n)]\)</span> can be defined to represent
+a piecewise linear curve:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># direct specification of a 4 point target curve in ace file:</span>
+<span class="s1">&#39;target_val&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">40.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">80.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">120.0</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">)]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Option 2, specify <code class="docutils literal notranslate"><span class="pre">target_file</span></code>: filename incl. path to a 2-column blank or comma-separated
+<span class="math notranslate nohighlight">\(x_i, y_i\)</span> valued list in text format. In this case the contents of the
+target file would be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of a target curve file (optional comment lines start with #)</span>
+<span class="c1"># define the target curve as a list of x, y values:</span>
+<span class="mf">10.0</span><span class="p">,</span>  <span class="mf">40.0</span>
+<span class="mf">40.0</span><span class="p">,</span>  <span class="mf">30.0</span>
+<span class="mf">80.0</span><span class="p">,</span>  <span class="mf">30.0</span>
+<span class="mf">120.0</span><span class="p">,</span> <span class="mf">55.0</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Note that the target curve is assigned a constant value <span class="math notranslate nohighlight">\(y_1\)</span> for <span class="math notranslate nohighlight">\(x\)</span> values below <span class="math notranslate nohighlight">\(x_1\)</span>
+and <span class="math notranslate nohighlight">\(y_n\)</span> above <span class="math notranslate nohighlight">\(x_n\)</span>.</p>
+<p>The option <code class="docutils literal notranslate"><span class="pre">weight_fac</span></code> can be used in multi-target optimizations where the
+relative weighting of each of the targets can be controlled by this factor, a
+higher value would mean the corresponding partial target would be assigned a
+higher importance in the weighted sum of targets. At the moment it is <em>disadviced</em>
+to use multiple target definitions as this often results in problem formulations
+that have no feasible space left and hence cannot really improve anything.
+Generally, it is much more effective to formulate such optimization problems
+using a  <em>composed</em> repsonse as described in section
+<a class="reference internal" href="#response-evaluation-and-composing"><span class="std std-ref">results evaluator</span></a>.</p>
+<p>Finally, the option <code class="docutils literal notranslate"><span class="pre">res_id</span></code> assigns a, pottentially composed, response
+to the defined target curve, e.g. <code class="docutils literal notranslate"><span class="pre">res_id</span> <span class="pre">=</span> <span class="pre">3</span></code> would assign the current
+target to the extracted response with id 3 (further details in
+<a class="reference internal" href="#response-extraction-and-monitoring"><span class="std std-ref">results selection</span></a>).</p>
+</section>
+</section>
+<section id="cae-solver-job-submission">
+<h2>CAE solver job submission<a class="headerlink" href="#cae-solver-job-submission" title="Link to this heading">¶</a></h2>
+<p>The ACE project file section <code class="docutils literal notranslate"><span class="pre">sim_settings</span></code> controls how the CAE solver jobs (e.g. Nastran)
+should be submitted to either a the local host or -more common- to a queuing system or
+task/workload manager that
+distributes the CAE jobs over a cluster of HPC nodes. In most cases, ACE itself is
+run on a local host that is able to submit CAE jobs
+into a queuing system using the linux command line.</p>
+<p>The simumlation settings block should be a list of dictionaries where each dictionary
+would represent submission of the job to a different solver. At the moment however,
+it is only permitted to use a single CAE solver within an ACE run.
+The possible CAE simulation sections are shown in the follow code block and
+discussed within the scope of this section. Note that during installation time
+most of these settings can be configured only once and they will then automatically
+be taken upon time of a new project creation (see installation manual on how
+to make system wide configurations).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ================================================================================</span>
+<span class="c1"># Simulation settings (setup of CAE job submission)</span>
+<span class="c1"># ================================================================================</span>
+<span class="c1"># Define the CAE simulation settings like solver, input deck and job submit command to be used.</span>
+<span class="c1"># The request format should be a python list of dictionaries, e.g. [{...}, {...}]</span>
+<span class="n">sim_settings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;solver&#39;</span><span class="p">:</span> <span class="s1">&#39;nastran&#39;</span><span class="p">,</span>  <span class="c1"># CAE solver, either &#39;nastran&#39;, &#39;optran&#39; or &#39;optistruct&#39;</span>
+     <span class="s1">&#39;n_parallel_submits&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># number of parallel CAE job submits in worker pool (actual behavior depends on queuing system)</span>
+     <span class="s1">&#39;timeout_cae&#39;</span><span class="p">:</span> <span class="mi">86400</span><span class="p">,</span>  <span class="c1"># overall cae job timeout in seconds (abort ace run after timeout expiry); e.g. 86400=24h, 172800=48h</span>
+     <span class="s1">&#39;input_deck&#39;</span><span class="p">:</span> <span class="s1">&#39;master_sol111_frf_struct_sdamp_nastran.nas&#39;</span><span class="p">,</span>  <span class="c1"># may contain wildcards like &quot;*&quot; or &quot;?&quot; as long as the final filename match is unique</span>
+     <span class="s1">&#39;output_subdir&#39;</span><span class="p">:</span> <span class="s1">&#39;tmp&#39;</span><span class="p">,</span>  <span class="c1"># CAE output sub-directory (often &quot;tmp&quot;, set to None if no output subdir is used)</span>
+     <span class="s1">&#39;submit_cmd&#39;</span><span class="p">:</span> <span class="s1">&#39;remote_nastran_submit $</span><span class="si">{input_deck}</span><span class="s1"> out=$</span><span class="si">{output_subdir}</span><span class="s1"> amls=yes mem=32Gb smp=16&#39;</span><span class="p">,</span>
+     <span class="c1"># deprecated options, typically not required to change/use:</span>
+     <span class="s1">&#39;flag_submit_whole_batch&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># True: invoke specified CAE submit command only once for whole batch</span>
+     <span class="s1">&#39;flag_submit_abort&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># True: abort ace run before invoking CAE submit command</span>
+    <span class="p">},</span>
+    <span class="p">]</span>  <span class="c1"># solver settings for the Nastran/Optran simulation run, must be a list of dicts</span>
+</pre></div>
+</div>
+<p>The first setting consists of the <code class="docutils literal notranslate"><span class="pre">solver</span></code> which represents the CAE solver that
+is used, currently supported solvers are: ‘nastran’, ‘optran’ and ‘optistruct’.</p>
+<p>The number of parallel workers for CAE job submittion is controlled by <code class="docutils literal notranslate"><span class="pre">n_parallel_submits</span></code>.
+This setting is particulary useful to run for a example multiple CAE jobs in parallel
+on the local host that is running ACE. On the other hand, if a queuing system
+is used for job submission this setting merely control how many jobs will be dispatched
+to the queueing system in parallel.</p>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">timeout_cae</span></code> can be used to set an upper timeout limit (in seconds)
+for ACE to wait for all CAE jobs within the current batch to complete.
+If this timeout value is exceeded before all CAE jobs are completed ACE will
+abort itself. In case the ACE should be continued from the point where the run was aborted,
+ACE can be started using the
+restart option ‘-r’ and the run will continue again from where it was stopped.</p>
+<p>The filename (without path) of the actual CAE input deck that should be submitted
+to the CAE solver is specified in field <code class="docutils literal notranslate"><span class="pre">input_deck</span></code>. Note that wildcards like
+“*” are allowed as long the final resulting filename results in a unique name.</p>
+<p>ACE prefers that the CAE results files are outputted to a sub-directory
+within the CAE job-directory to allow improved filter options for identification
+of the CAE log and results files at a later stage. The name of this output sub-directory
+is specified using the setting <code class="docutils literal notranslate"><span class="pre">output_subdir</span></code>. If no output sub-directory shoulld be
+used this value can be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> (without quotes).</p>
+<p>Finally, the actual submit command that either start the solver job locally or submits
+it to the queueing system is specified through option <code class="docutils literal notranslate"><span class="pre">submit_cmd</span></code>. The value
+must consist of a valid linux command executable on the host that runs ACE.
+Note the input deck as well as the output sub-directory are referenced using
+their predefined names <code class="docutils literal notranslate"><span class="pre">input_deck</span></code> and <code class="docutils literal notranslate"><span class="pre">output_subdir</span></code>. Doing so
+results in the advantage the submit command is independent of the actual name
+of the solver input deck file which means the submit command can be configured
+only once during the ACE installation process.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>It is <strong>highly recommended</strong> to configure the <code class="docutils literal notranslate"><span class="pre">submit_cmd</span></code> only once during the
+installation process as this is generally the same for all users.</p>
+</div>
+<p>The remaining two options, <code class="docutils literal notranslate"><span class="pre">flag_submit_whole_batch</span></code> and <code class="docutils literal notranslate"><span class="pre">flag_submit_abort</span></code>,
+are deprecated and should be ignored (and typically set to False).</p>
+</section>
+<section id="custom-functionality-external-tools">
+<h2>Custom functionality (external tools)<a class="headerlink" href="#custom-functionality-external-tools" title="Link to this heading">¶</a></h2>
+<p>In some occasions it is required to perform some additional operations
+(e.g. run external commands) after the CAE jobs are completed and returned from
+the queuing system. For this reason, ACE offers a section <code class="docutils literal notranslate"><span class="pre">post_cae_settings</span></code>
+that can be used to run a single or a whole pipeline of external commands that
+can interact with the CAE results (e.g. do some kind of post-processing
+operation before ACE continues).
+This proved particulary useful for embedding custom CAE processes in
+the ACE workflow. Furthermore many ACE plugins take advantage
+of this feature (see <a class="reference internal" href="plugins.html#plugins"><span class="std std-ref">section plugins</span></a>).</p>
+<p>At the time of writing, custom processes can only be included directly after the
+CAE job retrieval, as pointed out by the break-point “B” in
+<a class="reference internal" href="#fig-ace-cycle-break-points"><span class="std std-numref">Fig. 8</span></a>.
+In a future ACE version also other break-points A, C and D may be enabled
+for adding custom functionality.</p>
+<figure class="align-center" id="id6">
+<span id="fig-ace-cycle-break-points"></span><a class="reference internal image-reference" href="../_images/ace_overview_learn_cycle.png"><img alt="ace self-learning cycles" src="../_images/ace_overview_learn_cycle.png" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">“Post-CAE” custom processes are included at break-point B, between CAE job
+retrieval and the dataminer phase (lower left)</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>By means of following simple example, the usage of the <code class="docutils literal notranslate"><span class="pre">post_cae_settings</span></code>
+section is
+explained. In the code block below two successive commands are defined that
+are act on all the <code class="docutils literal notranslate"><span class="pre">*.f06</span></code> files identified within the path of the
+active batch (e.g. inside directory <code class="docutils literal notranslate"><span class="pre">batch01</span></code>).
+The first command compresses the identified f06 files whereas the second
+command will uncompress them again.
+Each command and the associated options are gathered in a dictionary again (<code class="docutils literal notranslate"><span class="pre">{...}</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ================================================================================</span>
+<span class="c1"># Post CAE script settings (external scripts that run after the batch of CAE jobs)</span>
+<span class="c1"># ================================================================================</span>
+<span class="c1"># Define an optional (customized) script that should be executed in a shell after</span>
+<span class="c1"># the batch of CAE simulations is completed.</span>
+<span class="c1"># The request format should be a python list of dictionaries, e.g. [{...}, {...}]</span>
+<span class="n">post_cae_settings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># a example to gzip and gunzip  all *.f06 files from the active batch:</span>
+    <span class="c1"># first command compresses files (using max 8 parallel processes):</span>
+    <span class="p">{</span><span class="s1">&#39;command&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;file_search&#39;</span><span class="p">:</span> <span class="s1">&#39;*.f06&#39;</span><span class="p">,</span>  <span class="c1"># recursive search for file-pattern *.f06 in the active batch path</span>
+     <span class="s1">&#39;input_args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;-1&#39;</span><span class="p">,</span> <span class="s1">&#39;$</span><span class="si">{file_search}</span><span class="s1">&#39;</span><span class="p">],</span>  <span class="c1"># list of input arguments to pass to the command (order sensitive)</span>
+     <span class="s1">&#39;n_processes&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>  <span class="c1"># allowed number of parallel worker processes to use</span>
+     <span class="s1">&#39;flag_active&#39;</span><span class="p">:</span> <span class="kc">True</span>  <span class="c1"># True/False: option to switch on/off usage of script but keep the definition in the ace file</span>
+    <span class="p">},</span>
+    <span class="c1"># second command uncompresses *.f06.gz files again (using max 2 parallel processes):</span>
+    <span class="p">{</span><span class="s1">&#39;command&#39;</span><span class="p">:</span> <span class="s1">&#39;gunzip&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;file_search&#39;</span><span class="p">:</span> <span class="s1">&#39;*.f06.gz&#39;</span><span class="p">,</span>  <span class="c1"># recursive search for file-pattern *.pch.gz in the active batch path</span>
+     <span class="s1">&#39;input_args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;$</span><span class="si">{file_search}</span><span class="s1">&#39;</span><span class="p">],</span>  <span class="c1"># list of input arguments to pass to the command (order sensitive)</span>
+     <span class="s1">&#39;n_processes&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># allowed number of parallel worker processes to use</span>
+     <span class="s1">&#39;flag_active&#39;</span><span class="p">:</span> <span class="kc">True</span>  <span class="c1"># True/False: option to switch on/off usage of script but keep the definition in the ace file</span>
+    <span class="p">},</span>
+    <span class="p">]</span>  <span class="c1"># post-cae command settings, must be a list of dicts for issuing multiple commands/scripts (order sensitive)</span>
+</pre></div>
+</div>
+<p>The field <code class="docutils literal notranslate"><span class="pre">command</span></code> contains the name of the command to be executed in
+a shell (in the ACE project directory).
+For the compression step this is <code class="docutils literal notranslate"><span class="pre">gzip</span></code> and for the decompression <code class="docutils literal notranslate"><span class="pre">gunzip</span></code>.
+If required, the option <code class="docutils literal notranslate"><span class="pre">file_search</span></code> can be used to resursively search
+for files, matching a filename pattern, in the active batch directory.
+The identified files can then be used as input argument for the command
+in the <code class="docutils literal notranslate"><span class="pre">input_args</span></code> field using a reference to <code class="docutils literal notranslate"><span class="pre">${file_search}</span></code>.
+For illustration purposes, an additional input argument <code class="docutils literal notranslate"><span class="pre">-1</span></code> (use a low
+compression level) is specified in the compression command.</p>
+<p>The number of permitted parallel processes (“workers”) used to work on the
+pending operations is specified in field <code class="docutils literal notranslate"><span class="pre">n_processes</span></code>. Here, 8 parallel workers
+are allowed for gzipping the identified f06 files but only 2 workers are
+setup for the decompression stage. Note that <em>multi-processing</em> is used for
+(de)compressing the files, it does not control whether the
+invoked commands itself might use <em>multi-threading</em> (or even multi-processing) again.
+So if running ACE on a host with 24 physical cores and it is known that the
+specified external command itself uses multi-threading with 4 threads (cores), then
+the number of specified parallel processes should preferably not exceed 6
+otherwise a state of overprovisioning with severe performance degradation
+might occur (or might even cause overal system instability).</p>
+<p>Concluding, this is a somewhat non-meaningful and simplified example, but it shows
+the concept and ability to include external commands which has proven to be very
+useful for including several custom methods in ACE runs.</p>
+<p>More advanced usage consists of defining ACE experiment parameters (features) and
+pass these using environment variables as input arguments to the invoked commands.
+This enables to use external programs inside the ACE optimization or DOE workflow.
+Examples of this approach include optimization of spotweld geometry and parameters
+or exterior noise radiation using a BEM-solver as post-processing step after the
+Nastran FEM jobs. If interested in such a more advanced application, please
+contact <a class="reference external" href="mailto:support&#37;&#52;&#48;cdh-ag&#46;com">CDH-support</a> for further information and assistance.</p>
+</section>
+<section id="doe-ml-and-ai-settings">
+<h2>DOE, ML and AI settings<a class="headerlink" href="#doe-ml-and-ai-settings" title="Link to this heading">¶</a></h2>
+<p>Finally, the section <code class="docutils literal notranslate"><span class="pre">exp_settings</span></code> is used to control the
+settings for the initial design of experiments (batch00) and the subsequent
+machine learning and AI based optimization learning cycles (batch01 and higher).
+Furthermore it can configure an automatic call to the robustness study plugin
+of ACE.
+Important for understanding the contents of this section following 2 definitions
+are pointed out once more (see <a class="reference internal" href="abbreviations.html#tab-abbreviations"><span class="std std-numref">Table 5</span></a> for further details):</p>
+<ul class="simple">
+<li><p><strong>sample</strong>: an experiment sample represents a single design variation and is
+associated with a corresponding CAE job (also called simulation
+variant, hence the commonly encountered abbreviation “sv”).</p></li>
+<li><p><strong>feature</strong>: a feature is a general name of some system characteristic that is
+modified in a sample. A feature is often referred to as experiment parameter,
+factor, design variable or dimension.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ================================================================================</span>
+<span class="c1"># General experiment / ace settings (ACE run)</span>
+<span class="c1"># ================================================================================</span>
+<span class="n">exp_settings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;sampling_type&#39;</span><span class="p">:</span> <span class="s1">&#39;lhs&#39;</span><span class="p">,</span>  <span class="c1"># sampling approach for initial DOE (lhs, univar, fullfactorial, random) (overruled by command line option &quot;-s&quot;)</span>
+     <span class="s1">&#39;n_samples_per_feature&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># number of samples/experiments per feature for initial DOE (overruled by command line option &quot;-n&quot;)</span>
+     <span class="s1">&#39;n_samples_per_batch&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                             <span class="s1">&#39;distance&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                             <span class="s1">&#39;trace&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                             <span class="s1">&#39;neighborhood&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                             <span class="s1">&#39;ranking&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                             <span class="s1">&#39;clustering&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                             <span class="s1">&#39;worstcase&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                             <span class="s1">&#39;robustness_baseline&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                             <span class="p">},</span>  <span class="c1"># number of samples per ML batch (irrelevant for initial DOE batch00)</span>
+     <span class="s1">&#39;n_batches_max&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>  <span class="c1"># maximum allowed number of ML batches (overruled by command line option &quot;-b&quot;)</span>
+     <span class="s1">&#39;n_batches_early_stop&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>  <span class="c1"># early stop ML after number of batches without improvement of optimum</span>
+     <span class="s1">&#39;convergence_factor&#39;</span><span class="p">:</span> <span class="mf">1.0E-04</span><span class="p">,</span>  <span class="c1"># stop optimization (converged) if target violation is reduced by this factor (compared to baseline)</span>
+     <span class="s1">&#39;n_processes&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># max allowed number of parallel processes to use for ML (more is faster, set -1 to use all cores)</span>
+     <span class="s1">&#39;ml_methods&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linreg&#39;</span><span class="p">,</span> <span class="s1">&#39;svr&#39;</span><span class="p">,</span> <span class="s1">&#39;gpr&#39;</span><span class="p">,</span> <span class="s1">&#39;xgbr&#39;</span><span class="p">,</span> <span class="s1">&#39;lgbr&#39;</span><span class="p">,</span> <span class="s1">&#39;rfr&#39;</span><span class="p">,</span> <span class="s1">&#39;mlpr&#39;</span><span class="p">],</span> <span class="c1"># list of ML methods to use: &#39;LinReg&#39;, &#39;GPR&#39;, &#39;SVR&#39;, &#39;XGBR&#39;, &#39;LGBR&#39;, &#39;RFR&#39;, &#39;MLPR&#39;</span>
+     <span class="s1">&#39;robustness_study&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;baseline&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                          <span class="s1">&#39;optimum&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                          <span class="s1">&#39;deviation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">],</span>
+                          <span class="s1">&#39;predictor&#39;</span><span class="p">:</span> <span class="s1">&#39;rfr&#39;</span><span class="p">},</span>  <span class="c1"># settings for robustness analysis plugin</span>
+     <span class="c1"># preferable do *not* change following settings unless you know their meaning:</span>
+     <span class="s1">&#39;flag_feature_elimination&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># True: allow adaptive elimination of irrelevant features/parameters in ML</span>
+     <span class="s1">&#39;flag_feature_remove_empty&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># True: allow automatic removal of empty property cards in DOE (no elements attached)</span>
+     <span class="s1">&#39;flag_distance_penalty&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># True: use penalty function to avoid coincident samples</span>
+     <span class="c1"># &#39;flag_restart_run&#39;: False  # preferred to use CLI option &quot;--restart&quot;; True: try to perform a restart run based on existing results from previous run;</span>
+     <span class="s1">&#39;flag_active&#39;</span><span class="p">:</span> <span class="kc">True</span>  <span class="c1"># True/False: option to (de)activate execution of ML (phase4)</span>
+    <span class="p">}</span>
+    <span class="p">]</span>  <span class="c1"># ACE DOE/ML experiment settings</span>
+</pre></div>
+</div>
+<section id="doe-setup-design-of-experiments">
+<h3>DOE - setup design of experiments<a class="headerlink" href="#doe-setup-design-of-experiments" title="Link to this heading">¶</a></h3>
+<p>ACE provides two main options for generating the initial Design of Experiments (DOE)
+that typically serves as starting point for all further machine learning based studies
+and/or plugins.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#automated-doe"><span class="std std-ref">Automated DOE</span></a>: ACE generates the
+initial batch of samples automatically
+using the settings from the project file.</p></li>
+<li><p><a class="reference internal" href="#manual-doe"><span class="std std-ref">Manual DOE</span></a>: the user specifies the initial
+experiment samples explicitly
+using a table of value from a file (csv formatted table).</p></li>
+</ul>
+</div></blockquote>
+<section id="automated-doe">
+<h4>Automated DOE<a class="headerlink" href="#automated-doe" title="Link to this heading">¶</a></h4>
+<p>In the <code class="docutils literal notranslate"><span class="pre">exp_settings</span></code> section, the first two settings <code class="docutils literal notranslate"><span class="pre">sampling_type</span></code> and
+<code class="docutils literal notranslate"><span class="pre">n_samples_per_feature</span></code> control the automated design of experiments which is always
+performed in batch00 (first learn cycle) as a starting point for all potential further
+work. The sampling type, <code class="docutils literal notranslate"><span class="pre">sampling_type</span></code>, configures the sampling approach
+and the setting <code class="docutils literal notranslate"><span class="pre">n_samples_per_feature</span></code> the number of samples per active feature
+(experiment parameter).
+Following sampling approaches are available in ACE, see also
+<a class="reference internal" href="#fig-doe-sampling-types"><span class="std std-numref">Fig. 9</span></a> for a visual interpretation:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>random</strong>: generates completely random samples. This is an naive and disadviced
+sampling approach as it does not avoid clustering of samples nor does it take care
+of an even distrubition of samples in space (clearly visible in the upper left plot).</p></li>
+<li><p><strong>lhs</strong>: Latin-Hypercube-Sampling represents a
+semi-random approach that divides the design space in equally distributed segments first.
+The samples are then randomly assigned to these segments while at most 1 sample
+is allocated per segment to ensure a relatively uniform distribution in space
+(good coverage, see upper right plot).
+This approach generally leads to an initial experiment providing a high information
+content and is used as default in ACE (using segment centered samples).</p></li>
+<li><p><strong>univariate</strong>: A uni-variate distribution changes a single feature at a time while
+holding all other features constant at the initial baseline value.
+This leads to equidistant sampled orthogonal straight lines
+in design space that are “emitted” from the baseline sample (see lower left plot).</p></li>
+<li><p><strong>fullfactorial</strong>: In contrast to the uni-variate, a full-factorial experiment
+samples all possible permitted combinations of the features (a “factor” is a
+the same a “feature”). While providing a lot of information, this approach
+quickly leads to an excessive amount of samples in cases where more than a handful
+of features is available. This makes the approach only suitable for cases with very
+features (typically 5 or less).</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id7">
+<span id="fig-doe-sampling-types"></span><a class="reference internal image-reference" href="../_images/ace_sampling_type_random_lhs_univar_fullfac.png"><img alt="DOE sampling types" src="../_images/ace_sampling_type_random_lhs_univar_fullfac.png" style="width: 720px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Illustation of available DOE sampling types (2 features, 7 samples per feature).
+Red dot represents the baseline sample (initial design state).</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The number of samples per feature controls how many samples are generated in the DOE.
+For example if there are 4 (active) features and 3 features per sample should be
+generated the total number of samples in batch00 will be 12 plus 1 baseline sample.
+Note that for convenience the number of samples per feature <code class="docutils literal notranslate"><span class="pre">n_samples_per_feature</span></code>
+can be overriden at ace start time by the <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">run</span></code> input argumnet <code class="docutils literal notranslate"><span class="pre">-n</span></code>.
+Note that for discrete features (experiment parameters), the DOE only selects
+samples from the permitted discrete values.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The first sample (“sv000”) in the DOE (batch00) is always the “baseline” sample
+which serves as reference for comparisions.</p>
+</div>
+</section>
+<section id="manual-doe">
+<h4>Manual DOE<a class="headerlink" href="#manual-doe" title="Link to this heading">¶</a></h4>
+<p>Apart from the above automated options, ACE also provides way to load explicit user
+specified initial DOE samples from a csv file.
+This however requires starting ACE with specification of the
+csv sample file, e.g. <code class="docutils literal notranslate"><span class="pre">my_doe_samples.csv</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># start ACE run with user specified DOE samples from a csv file:</span>
+ace<span class="w"> </span>run<span class="w"> </span>--file_doe_samples<span class="w"> </span>my_doe_samples.csv<span class="w"> </span>.
+</pre></div>
+</div>
+<p>In order to create such a user-based doe sample file, following approach is
+highly recommended
+as the settings in the *.ace project file must be consistent
+with the samples provided in the csv input file (e.g. which fields are varied,
+continuously and which are discrete, what min/max settings apply, etc…).</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Setup the ACE project file as usual</p></li>
+<li><p>Run a “baseline analysis only” (use: <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">run</span> <span class="pre">--baseline</span> <span class="pre">.</span></code>) and, if applied,
+check for example the defined target curve (under directory <code class="docutils literal notranslate"><span class="pre">results</span></code>).</p></li>
+<li><p>This initial run will create an DOE experiment csv table file: <code class="docutils literal notranslate"><span class="pre">batch00/doe_exp_samples_table.csv</span></code></p></li>
+<li><p>Copy this file into the project directory (change of filename is allowed)</p></li>
+<li><p>Modify the contens of the copied file by changing the features, their values
+and/or the number of experiments in the file.</p></li>
+<li><p>Start the actual ace run using input argument <code class="docutils literal notranslate"><span class="pre">--file_doe_samples</span></code> and
+specification of the user-updated csv file containing the DOE samples</p></li>
+</ol>
+</div></blockquote>
+<p>It is important to note that only feature values which differs from
+the baseline value need to specified (ACE automatically sets all
+features without specified value to the baseline value). The column names
+itself should not be modified and the exp_id colum must start at 0 (baseline)
+and increase monotonically. Lines starting with hash (#) are considered as comments
+and will be ignored.
+An example of a simple DOE csv file is shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of user-specfied DOE sample csv file (for use with: ace run -f)</span>
+<span class="c1"># Comment lines start with a hash sign (#)</span>
+<span class="c1"># First non-commment line must be the header line.</span>
+<span class="c1">#</span>
+<span class="c1"># This run contains 3 thickness features of PSHELL IDs 10,20 and 30</span>
+<span class="c1"># A total of 1 baseline sample and 4 further DOE experiment samples (exp_id) are defined.</span>
+<span class="n">exp_id</span><span class="p">,</span> <span class="n">feature_name</span><span class="p">,</span>  <span class="n">value</span>
+<span class="mi">0</span><span class="p">,</span>      <span class="n">T_PSHELL_ID10</span><span class="p">,</span>   <span class="mf">1.0</span>  <span class="c1"># baseline sample / value</span>
+<span class="mi">0</span><span class="p">,</span>      <span class="n">T_PSHELL_ID20</span><span class="p">,</span>   <span class="mf">0.5</span>  <span class="c1"># baseline sample / value</span>
+<span class="mi">0</span><span class="p">,</span>      <span class="n">T_PSHELL_ID30</span><span class="p">,</span>   <span class="mf">2.0</span>  <span class="c1"># baseline sample / value</span>
+<span class="mi">1</span><span class="p">,</span>      <span class="n">T_PSHELL_ID20</span><span class="p">,</span>   <span class="mf">0.75</span>  <span class="c1"># for experiment sample 1 only change feature 20</span>
+<span class="mi">2</span><span class="p">,</span>      <span class="n">T_PSHELL_ID20</span><span class="p">,</span>   <span class="mf">0.75</span>  <span class="c1"># for experiment sample 2 change features 20 and 30</span>
+<span class="mi">2</span><span class="p">,</span>      <span class="n">T_PSHELL_ID30</span><span class="p">,</span>   <span class="mf">1.25</span>
+<span class="mi">3</span><span class="p">,</span>      <span class="n">T_PSHELL_ID10</span><span class="p">,</span>   <span class="mf">2.0</span>  <span class="c1"># for experiment sample 3 only change feature 10</span>
+<span class="mi">4</span><span class="p">,</span>      <span class="n">T_PSHELL_ID30</span><span class="p">,</span>   <span class="mf">1.0</span>  <span class="c1"># for experiment sample 4 only change feature 30</span>
+</pre></div>
+</div>
+<p>Note that the above approach may be more streamlined in a future version if
+this functionality is prioritized by customers.</p>
+<p>The samples in the csv file should be provided as a table similar</p>
+<p>In case the DOE samples are read from file and hence, no internal DOE
+algorithms is used for the initial sample generation, the <code class="docutils literal notranslate"><span class="pre">sampling_type</span></code>
+and <code class="docutils literal notranslate"><span class="pre">n_samples_per_feature</span></code> settings are ignored.</p>
+</section>
+</section>
+<section id="ml-ai-optimization">
+<h3>ML/AI optimization<a class="headerlink" href="#ml-ai-optimization" title="Link to this heading">¶</a></h3>
+<p>The remaining options in the <code class="docutils literal notranslate"><span class="pre">exp_settings</span></code> section provide the user control
+over the multi-batch/learning-cycle machine learning and artificial intelligience
+behavior. Most of these settings however are fine for an initial ACE run
+and are intended for users that have already aqcuired some experience with ACE.</p>
+<p>To limit the maximum number of batches (learning-cycles) the setting <code class="docutils literal notranslate"><span class="pre">n_batches_max</span></code>
+can be set to a positive integer value, e.g. setting it to a value of 3 would result
+ACE to stop the optimization/learning after batch02 (note that ACE starts
+counting at batch00). To avoid ACE from continuing computing without making any further
+progress, the option <code class="docutils literal notranslate"><span class="pre">n_batches_early_stop</span></code> can be set to stop the run after
+the specified number of batches that show no further reduction of the target
+violation. For example, if set to 4, and the last optimum was found at batch02,
+ACE will stop at batch06 in case no new optimum has been found up to that point.</p>
+<p>Similary, the option <code class="docutils literal notranslate"><span class="pre">convergence_factor</span></code> is used to specify when a
+solution should be considered to be converged (apart from target violation being 0).
+Convergence is reached when the target violation gets below the specified fraction of
+the initial target violation of the baseline design state:
+<span class="math notranslate nohighlight">\(violation &lt;= fac_{conv} * violation_{baseline}\)</span>
+For example, if the baseline target violation would have a value of 50.0 and a
+convergence factor of 0.01 is specified, then ACE would consider
+a solution with violation below 0.5 as converged and stop generation any further batches.
+Naturally, the value of this factor must be between 0 (no remaining violation)
+and 1 (original baseline target violation).</p>
+<p>Option <code class="docutils literal notranslate"><span class="pre">n_processes</span></code> selects the maximum number of parallel processes (or threads)
+that ML and AI computations are allowed to use. It is highly recommended to set
+this a at least a value of 8 processes assuming the local host has that many
+physical CPU cores.</p>
+<p>The setting <code class="docutils literal notranslate"><span class="pre">ml_methods</span></code> specifies which machine learning algorithms are allowed
+to be used for the learning (training) process. Typically, the default settings can be
+maintained as different ML approaches might be more suitable for different optimization
+or prediction problems. Moreover, due to the iterative multi-batch behavior the
+using multiple machine learning methods potententially take advantage of
+their “collective findings” as opposed to using only a single ML approach for learning.</p>
+<p>A wide variety ranging from very simple to relatively complex machine learning
+methods is supported. Each of the methods is briefly explained by means of
+the one dimensional example function</p>
+<div class="math notranslate nohighlight" id="equation-example-ml-function">
+<span class="eqno">(14)<a class="headerlink" href="#equation-example-ml-function" title="Link to this equation">¶</a></span>\[f(x) = x \sin(x)\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> represents a single feature and <span class="math notranslate nohighlight">\(f(x)\)</span> the objective
+function to be approximated (see <a class="reference internal" href="#fig-example-ml-true-function"><span class="std std-numref">Fig. 10</span></a>).</p>
+<figure class="align-center" id="id8">
+<span id="fig-example-ml-true-function"></span><a class="reference internal image-reference" href="../_images/true_function.png"><img alt="Example objective function" src="../_images/true_function.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Example true objective function for ML illustration purposes</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>During the ML learning process (training), this function is approximated by
+the different ML appoached using the available discrete samples resulting.
+Each of the ML methods results in a different model that can be used to
+make fast predictions of the objective function outside of the known sampling
+points.</p>
+<ul>
+<li><p><strong>linreg</strong>: <strong>Linear Regression</strong> is a basic predictor that assumes a linear
+relationship
+between the dependent objective function and the independent features.
+It fits a linear model with coefficients to minimize the
+residual sum of squares between the observed training samples in the dataset,
+and the targets predicted by the linear approximation.
+This regressor typically ensures early stage sampling of corner positions
+in the design space which in many cases represent (local) optima. It is
+obvious that the linear predictor is unsuitable to (globally) approximate
+more complex shaped non-linear functions (like the current example function).</p>
+<figure class="align-center" id="id9">
+<span id="fig-predictor-linreg"></span><a class="reference internal image-reference" href="../_images/predictor_linreg.png"><img alt="Linear regressor" src="../_images/predictor_linreg.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Approximation by linear regressor (linreg)</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>svr</strong>: <strong>Support Vector Regression</strong> aims to find a linear function that
+stays within a maximum deviation of eps from the training data. In cases where
+the data is non-linear, a kernel is used to transform the data in a higher
+dimensional space where a linear regression problem can be solved.</p>
+<figure class="align-center" id="id10">
+<span id="fig-predictor-svr"></span><a class="reference internal image-reference" href="../_images/predictor_svr.png"><img alt="Support vector regressor" src="../_images/predictor_svr.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Approximation by support vector regressor (svr)</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>gpr</strong>: <strong>Gaussian Process Regression</strong> is a non-parametric, probability based
+model used for regression tasks. It predicts the value of a function at a new
+point by considering the observed training data and assuming that the
+data points follow a joint Gaussian distribution. It is able to capture complex
+shaped functions but tends to suffer from instability near the feature bounds.</p>
+<figure class="align-center" id="id11">
+<span id="fig-predictor-gpr"></span><a class="reference internal image-reference" href="../_images/predictor_gpr.png"><img alt="Gaussian process regressor" src="../_images/predictor_gpr.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Approximation by Gaussian process regressor (gpr)</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>rfr</strong>: <strong>Random Forest Regression</strong> is a discrete ensemble learning
+technique that constructs multiple decision trees, each trained on a different
+subset of the data, and then averages their predictions to produce the final result.
+As decisions trees are inherently discrete, this method often performs well for
+situation where discrete features are presents and hence the object function
+is of discrete nature as well.
+.. _fig predictor rfr:</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/predictor_rfr.png"><img alt="Random forest regressor" src="../_images/predictor_rfr.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Approximation by random forest regressor (rfr)</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>xbgr</strong>: <strong>eXtreme Gradient Booster Regression</strong> is an advanced boosting
+algorithm that builds an ensemble of decision trees sequentially, with
+each tree correcting errors made by the previous ones. Like the random forest
+gradient boosting often perform well for problems having a discrete nature.
+Furthermore, the gradient boosting seems to scale very well for problems of
+higher dimensionality (many features).</p>
+<figure class="align-center" id="id13">
+<span id="fig-predictor-xgbr"></span><a class="reference internal image-reference" href="../_images/predictor_xgbr.png"><img alt="Gradient booster regressor" src="../_images/predictor_xgbr.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Approximation by extreme gradient booster regressor (xgbr)</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>lgbr</strong>: <strong>Light Gradient Booster Regression</strong> is a discrete gradient
+booster method very similar to xbgr.</p></li>
+<li><p><strong>mlpr</strong>: <strong>Multi Layer Perceptron Regression</strong> is a simple feed-forward type
+of neural network
+with multiple layers of neurons. It consists of an input layer, one or
+more hidden layers, and an output layer. Each neuron processes input data
+and passes it through an activation function to produce an output, which
+is then passed to the next layer. Provided sufficient training data is available,
+the MLPR regressor is able to approximate highly complex shaped continuous
+functions using a piecewise linear approach
+(general purpose piecewise linear function approximator).</p>
+<figure class="align-center" id="id14">
+<span id="fig-predictor-mlpr"></span><a class="reference internal image-reference" href="../_images/predictor_mlpr.png"><img alt="Multi-level perceptron regressor" src="../_images/predictor_mlpr.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Approximation by multi-level perceptron regressor (mlpr)</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<p>After the ML training phase, the AI-agent uses the resulting surrogate models
+(regressors) to make extremely fast predictions of the target violation for
+a large number of “prediction” samples
+(see <a class="reference internal" href="#fig-sampling-strategy-ground-truth"><span class="std std-numref">Fig. 17</span></a>). Based on the predicted response surface
+(target violations), the agent descides what feature combinations
+might make sense to confirm by an actual CAE simulation. By default
+the predicted optimal sample of each regressor
+(ML method) is selected for verification in the next batch of CAE simulations.
+In case the user activated the option “worstcase” by assigning a nonzero value,
+ACE will not only try to identify the optimum but at the same time
+tries to find the worstcase sample.</p>
+<figure class="align-center" id="id15">
+<span id="fig-sampling-strategy-ground-truth"></span><a class="reference internal image-reference" href="../_images/strategy_optimum_worstcase.png"><img alt="sampling strategy optimum and worstcase" src="../_images/strategy_optimum_worstcase.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">(Left) Actual/true response surface and (right) ML-predicted response surface with optimum and worstcase sample</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Besides these predicted “optimum” samples, several other sampling strategies
+are implemented to improve convergence and allow the user to have some level
+of control on the samples generated by the AI-agent. Which sampling strategies
+are used is configured using the <code class="docutils literal notranslate"><span class="pre">n_samples_per_batch</span></code> setting in the
+<code class="docutils literal notranslate"><span class="pre">exp_settings</span></code> section of the project file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># excerpt from &quot;exp_settings&quot; section</span>
+<span class="c1"># ...</span>
+<span class="c1"># &quot;n_sample_per_batch&quot; controls the permitted number of samples for each strategy</span>
+<span class="s1">&#39;n_samples_per_batch&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="s1">&#39;distance&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="s1">&#39;trace&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="s1">&#39;neighborhood&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="s1">&#39;ranking&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="s1">&#39;clustering&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="s1">&#39;worstcase&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s1">&#39;robustness_baseline&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="p">}</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>The first and most simple sampling strategy is naive “random” sampling,
+see left side of <a class="reference internal" href="#fig-sampling-strategy-random-distance"><span class="std std-numref">Fig. 18</span></a>, where
+the agent just generates a number of random samples regardless of
+the available samples from the DOE or earlier batches. A more enhanced
+sampling strategy, so-called “distance” samplingi, is shown in the right handside
+plot. To improve the information content in the overal data set, distance
+sampling puts the samples in empty regions of the design space that
+have not yet been covered well yet (explore unknown regions).</p>
+<figure class="align-center" id="id16">
+<span id="fig-sampling-strategy-random-distance"></span><a class="reference internal image-reference" href="../_images/strategy_random_distance.png"><img alt="sampling strategy random and distance" src="../_images/strategy_random_distance.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Sampling strategies: (left) random (right) distance sampling to explore empty regions</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>To improve the capability of assisting the user in helping to understand
+what are relevant experiment parameters (features) to get from the
+baseline to the optimum,
+the “trace” and “ranking” strategies are available. Tracing places
+equidistant sampled points along a straight line (“trace”) from the baseline to the
+predicted optimum as can be seen on the lefthand side of <a class="reference internal" href="#fig-sampling-strategy-trace-ranking"><span class="std std-numref">Fig. 19</span></a>.
+By doing so the ML predictors gain additional information about what
+is features are contributing how significantly when moving from the baseline
+to the optimum. Anothe usefull strategy is “ranking” where the agent
+sucessively changes the top n most relevant features from their baseline
+value to their predicted optimum value. This strategy results in
+a ranking plot (discussed later) that reveals the contribution of changing
+only the top n features while keeping all other at their baseline value.
+The right hand side plot show the simple case for the the top 1 descision
+where changing feature 1 to the optimum value has a much more significant
+contribution to a reduction of the target compared to feature 2. This approach
+is helpful for deciding which few features should be changed from a
+larger orginial set of features, e.g. the run contain 10 features but in
+the end the user wants to know
+which 3 features are actually most relevant to reduce the target).</p>
+<figure class="align-center" id="id17">
+<span id="fig-sampling-strategy-trace-ranking"></span><a class="reference internal image-reference" href="../_images/strategy_trace_ranking.png"><img alt="sampling strategy trace and ranking" src="../_images/strategy_trace_ranking.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Sampling strategies: (left) trace (right) ranking</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Two other closely related strategies are the “robustness_baseline” and
+the “neighborhood” strategies. The former strategy creates a the number
+of specified samples directly surroung the baseline point in order to
+improve the ML prediction capabilities for a robustness study around the baseline
+design state. This strategy is only executed once in batch01, hence it requires at
+least 2 batches to take advantage of it.
+The latter “neighborhood” strategy does something similar by shooting some samples
+closely around the predicted optimum in order to get some onformation about
+the robustness of the optimum. The samples associated with this strategy
+are only created in case a new optimum has been predicted. For example if in
+batch02 a new optimum is found (and confirmed by CAE), the specified
+number of neighborhood samples will be created for batch03.</p>
+<figure class="align-center" id="id18">
+<span id="fig-sampling-strategy-robustness-neighborhood"></span><a class="reference internal image-reference" href="../_images/strategy_neighborhood_baseline_robustnes.png"><img alt="sampling strategy baseline robustness and neighborhood" src="../_images/strategy_neighborhood_baseline_robustnes.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Sampling strategies: (left) robustness baseline (right) neighborhood optimum</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Finally the strategy “clustering” is
+available, see <a class="reference internal" href="#fig-sampling-strategy-clustering"><span class="std std-numref">Fig. 21</span></a>, that tries
+to locate distinct regions where a low target violation
+is predicted and subsequently builds local-clusters over these regions.
+The agent then selects within the
+identified clusters a sample in order to explore whether a local optimum
+is available. This often helps to avoid the common situation that an optimizer
+gets stuck in a local optimum and does no longer explore other paths.
+The number of permitted cluster samples is specified by the <code class="docutils literal notranslate"><span class="pre">clustering</span></code> field.</p>
+<figure class="align-center" id="id19">
+<span id="fig-sampling-strategy-clustering"></span><a class="reference internal image-reference" href="../_images/strategy_clustering.png"><img alt="sampling strategy clustering" src="../_images/strategy_clustering.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Sampling strategies: clustering explores distinct regions of low target violation (green)</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Note that the AI-agent only generates ML- predicted samples for batch01
+and higher as batch00 typically contains samples from the initial DOE only.</p>
+<p>Once trained ML models are available is possible to make many FRF response
+predictions within a very short time. This allows ACE to perform all kinds
+of interesting studies like fast response predictions for user specified
+feature settings or also performing robustness and tolerance analysis.
+A separate ACE plugin called “robustness study” is available that is
+able to use the ML surrogate models and perform sensitivity analusis at
+both the baseline location as well as for the optimized design state.
+Furtermore it allows to perform robustness studies where all or a part
+of the features is changed simultaneously and the effect on the predicted
+response can be analysed. The ACE project file allows the option to
+run this plugin automatically at the end of a run through the option
+<code class="docutils literal notranslate"><span class="pre">robustness_study</span></code>. However, only very few of the option available
+within the robustness plugin can be controlled inside the ace file:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">baseline</span></code> and <code class="docutils literal notranslate"><span class="pre">optimum</span></code> are boolean flags to enable (True) or
+disable (False) the robustness study for the baseline and optimum
+state respectively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deviation</span></code> specifies the lower and upper bound of deviation (1-sigma)
+that will be applied to all active features. Specification of a single
+value assumes a symmetric distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predictor</span></code> is used to select which ML surrogate model should
+be used for the predictions, default is random forest regressor (‘rfr’)</p></li>
+</ul>
+</div></blockquote>
+<p>By default, a normal (Gaussian) distribution is used for the robustness
+study. The output of automated study is written to the sub-directory
+<code class="docutils literal notranslate"><span class="pre">results/robustness_analysis</span></code>.</p>
+<p>For more advanced use with many more available options,
+the stand-alone command <code class="docutils literal notranslate"><span class="pre">robustness_study</span></code> should
+be used that can directly be started from the command line.
+See section <a class="reference internal" href="plugins.html#plugins"><span class="std std-ref">plugins</span></a> for further details.</p>
+<p>In the remainder of the <code class="docutils literal notranslate"><span class="pre">exp_settings</span></code> section a couple of boolean flags
+are available to enable (True) or disable (False) certain functionality:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">flag_feature_elimination</span></code>: enable/disable adaptive elimination of
+irrevelant features in ML</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flag_feature_remove_empty</span></code>: enable/disable automatic removal of empty
+property cards in DOE (property cards that are not referenced by any elements)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flag_distance_penalty</span></code>: enable/disable penalty function to avoid
+coincident samples</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flag_active</span></code> enable/disable execution of ML (should typically be True)</p></li>
+</ul>
+</div></blockquote>
+<p>Once the project file has been setup, the ACE run can be started using the
+<code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">run</span> <span class="pre">.</span></code> mode as described in the corresponding <a class="reference internal" href="usage_commands.html#sub-command-run"><span class="std std-ref">sub-command section</span></a></p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2025, CDH AG.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

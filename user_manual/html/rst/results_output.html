@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Results &#8212; User Manual 2025a documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=28445a45" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_styles.css?v=b6557435" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=64635090" />
+    <script src="../_static/documentation_options.js?v=5e98d239"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/ace_32x32_small.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plugins" href="plugins.html" />
+    <link rel="prev" title="ACE project file" href="ace_file.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ace_logo_html.png" alt="Logo of User Manual"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">User Manual</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_commands.html">Commands and modes of operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_project.html">Setup a new ACE project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ace_file.html">ACE project file</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Results</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#plot-descriptions-png-files">Plot descriptions (png files)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#baseline-response-and-target">Baseline response and target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optimized-response">Optimized response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worst-case-response">Worst-case response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convergence-history-over-batches">Convergence history over batches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-response-history-over-batches">Best response history over batches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-history-over-batches">Feature history over batches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-comparison-baseline-to-optimum">Feature comparison baseline to optimum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-importance-local-and-global">Feature importance (local and global)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-surface-predictions">Response surface predictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ranking-samples-plot">Ranking samples plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prediction-errors">Prediction errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-pair-plot">Feature pair plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#table-descriptions-csv-files">Table descriptions (csv files)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#experiment-parameters">Experiment parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mass-tables-baseline-and-optimum">Mass tables (baseline and optimum)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#experiment-samples">Experiment samples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_cards.html">Supported Nastran cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_pdf.html">Download pdf versions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ace_file.html" title="previous chapter">ACE project file</a></li>
+      <li>Next: <a href="plugins.html" title="next chapter">Plugins</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="results">
+<h1>Results<a class="headerlink" href="#results" title="Link to this heading">¶</a></h1>
+<p>One of the key features of ACE is that a lot of post-processing is completed
+automatically during the ace run. The intension is to create the most relevant
+result plots and/or csv tables without the need of the end user to spend much
+time on such mainly repetative tasks. In this section the most important plots
+and csv output tables are explained with focus on, but not limited to, design
+optimization.</p>
+<section id="plot-descriptions-png-files">
+<h2>Plot descriptions (png files)<a class="headerlink" href="#plot-descriptions-png-files" title="Link to this heading">¶</a></h2>
+<p>A brief desciption for each plot is listed in this section. Results are
+typically stored in the <code class="docutils literal notranslate"><span class="pre">results</span></code> sub-directory of the ace main project
+directory, altough some more detailed and batch (learn-cycle) specific plots
+are available in the <code class="docutils literal notranslate"><span class="pre">batch</span></code> sub-directories as well. For more details on the
+directory structure reference is made to section <a class="reference internal" href="setup_project.html#project-directory-structure"><span class="std std-ref">directory structure</span></a> in chapter <a class="reference internal" href="setup_project.html#setup-a-new-ace-project"><span class="std std-ref">setup a new
+project</span></a>.</p>
+<section id="baseline-response-and-target">
+<h3>Baseline response and target<a class="headerlink" href="#baseline-response-and-target" title="Link to this heading">¶</a></h3>
+<p>At the beginning of an ACE run, it is typically of interest to plot the
+user-specified target definition versus the unmodified baseline response to verify
+whether the target has been setup correctly. The recommended and quickest way
+to perform this is to let ACE run only the baseline simulation using the
+command <code class="docutils literal notranslate"><span class="pre">ace</span> <span class="pre">run</span> <span class="pre">-b=1</span> <span class="pre">-n=0</span></code> (this sets up 1 batch with 0 experiments, meaning
+only the unperturbed baseline response is computed). At the end of this
+baseline run, a response plot for each target definition is made. Note that if
+multiple experiments are made (e.g. <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>) in the initial batch, then also
+the worst and best response curve of the DOE is added to the plot (measured
+using the target violation). See section <a class="reference internal" href="usage_commands.html#sub-command-run"><span class="std std-ref">sub-command run</span></a> for further information
+on the command line options available while starting an ACE run.</p>
+<figure class="align-center" id="id1">
+<span id="fig-example-plot-baseline-response"></span><a class="reference internal image-reference" href="../_images/response_doe_batch00.png"><img alt="example plot baseline response" src="../_images/response_doe_batch00.png" style="width: 640px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Baseline/DOE response (file: <code class="docutils literal notranslate"><span class="pre">response_doe_batch00.png</span></code>)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="optimized-response">
+<h3>Optimized response<a class="headerlink" href="#optimized-response" title="Link to this heading">¶</a></h3>
+<p>The optimized response plot gives an overview of the initial baseline response,
+the best response in the initial DOE (batch00) and the response after
+optimization. Furthermore it typically shows the specified target curve and
+highlights the area where a target violation remains for the optimized
+response. Note that for convenience also a symbolic link <code class="docutils literal notranslate"><span class="pre">link_to_optimum</span></code>
+is created to the job-directory that contains the results of the optimized
+response.</p>
+<figure class="align-center" id="id2">
+<span id="fig-example-plot-optimized-response"></span><a class="reference internal image-reference" href="../_images/response_optimized.png"><img alt="example plot optimized response" src="../_images/response_optimized.png" style="width: 640px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Optimized response (file: <code class="docutils literal notranslate"><span class="pre">response_optimized.png</span></code>)</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="worst-case-response">
+<h3>Worst-case response<a class="headerlink" href="#worst-case-response" title="Link to this heading">¶</a></h3>
+<p>This plot is similar to the optimized response plot but in addition shows the
+worst-case response with the maximum target violation. Furthermore is displays
+the area in grey of all available response curves. This plot provides an
+indication about the variance of the responses and hence, the robustness of the
+system. Like for the optimized refesponse, also for the worstcase response a
+link <code class="docutils literal notranslate"><span class="pre">link_to_worstcase</span></code> is created for easy access to the corresponding
+job-directory.</p>
+<figure class="align-center" id="id3">
+<span id="fig-example-plot-worstcase-response"></span><a class="reference internal image-reference" href="../_images/response_worstcase.png"><img alt="example plot worstcase response" src="../_images/response_worstcase.png" style="width: 640px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Worst-case response (file: <code class="docutils literal notranslate"><span class="pre">response_worstcase.png</span></code>)</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="convergence-history-over-batches">
+<h3>Convergence history over batches<a class="headerlink" href="#convergence-history-over-batches" title="Link to this heading">¶</a></h3>
+<p>The convergence plot is important in optimization runs (number of batches /
+learn-cylces &gt; 1) and shows how the solution converges to the specified target.
+All solution is known to be “converged” once the target violation becomes zero
+(target reached) or certain convergence criteria are met (e.g. number of
+batches without convergence has been reached). Depending on the problem at
+hand, sometimes it makes more sense to look at the convergence on a linear
+scaling (left-hand side) whereas for other tasks it might be more appropreate
+to look at the logarithmic convergence (right-hand side).</p>
+<figure class="align-center" id="id4">
+<span id="fig-example-plot-convergence"></span><a class="reference internal image-reference" href="../_images/convergence.png"><img alt="example plot convergence" src="../_images/convergence.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Convergence in linear and logarithmic scaling (file: <code class="docutils literal notranslate"><span class="pre">convergence.png</span></code>)</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>A more detailed convergence plot is also available that more-or-less shows the
+same information as the overal convergence plot but for each machine learning
+(ML) model individually. This detailed plot also gives an indication how well
+each of the ML algorithms was able to capture the system behavior.</p>
+</section>
+<section id="best-response-history-over-batches">
+<h3>Best response history over batches<a class="headerlink" href="#best-response-history-over-batches" title="Link to this heading">¶</a></h3>
+<p>Whereas the convergence plot provides information on the target violation, the
+best response plot shows how the response itself evolved for each successive
+batch in the optimization run. Again, the best response is measured with
+respect to the minimum target violation.</p>
+<figure class="align-center" id="id5">
+<span id="fig-example-plot-response-history"></span><a class="reference internal image-reference" href="../_images/response_history_over_batches.png"><img alt="example plot best response history" src="../_images/response_history_over_batches.png" style="width: 640px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Best response history over batches (file: <code class="docutils literal notranslate"><span class="pre">response_history_over_batches.png</span></code>)</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="feature-history-over-batches">
+<h3>Feature history over batches<a class="headerlink" href="#feature-history-over-batches" title="Link to this heading">¶</a></h3>
+<p>Similar to the best response over the batches, this plot shows the history of
+the best feature values (experiment parameters) over each batch. Only the top
+12 most important features are shown, sorted by their descending importance
+(first feaature sub-plot is most important according to the ML-models).</p>
+<figure class="align-center" id="id6">
+<span id="fig-example-plot-features-history"></span><a class="reference internal image-reference" href="../_images/feature_history_over_batches.png"><img alt="example plot feature history" src="../_images/feature_history_over_batches.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Feature history over batches (file: <code class="docutils literal notranslate"><span class="pre">feature_history_over_batches.png</span></code>)</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="feature-comparison-baseline-to-optimum">
+<h3>Feature comparison baseline to optimum<a class="headerlink" href="#feature-comparison-baseline-to-optimum" title="Link to this heading">¶</a></h3>
+<p>This plot gives an overview of the change in feature values between the
+baseline and the optimized design state. The first sub-plot compares the
+feature values, the second and third sub-plot the absolute and relative
+difference and the last sub-plot contains the local importance of each feature.
+The local importance measures the contribution of each feature to go from the
+baseline to the localized optimum. Again, only the top 12 ranking of most
+important features are displayed.</p>
+<figure class="align-center" id="id7">
+<span id="fig-example-plot-feature-comparison-baseline-optimum"></span><a class="reference internal image-reference" href="../_images/feature_comparison_baseline_to_optimum.png"><img alt="example plot feature comparison" src="../_images/feature_comparison_baseline_to_optimum.png" style="width: 640px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Feature history over batches (file: <code class="docutils literal notranslate"><span class="pre">feature_comparison_baseline_to_optimum.png</span></code>)</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="feature-importance-local-and-global">
+<h3>Feature importance (local and global)<a class="headerlink" href="#feature-importance-local-and-global" title="Link to this heading">¶</a></h3>
+<p>The meaning of feature importance is often a source of confusion as it
+depends on the context in which it is used. In ACE, a distinction is made
+between so-called <em>local feature importance</em> and <em>global feature importance</em>.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">local importance<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a measure of the feature contribution in
+reaching the optimized response (a <em>local</em> point in the design space)</p>
+</dd>
+<dt class="field-even">global importance<span class="colon">:</span></dt>
+<dd class="field-even"><p>a measure of the influence feature has on the
+target violation thorughout the whole design space (a <em>global</em> measure)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>It should be pointed out that both importance criteria heavily dependent on the
+underlying ML-models that are used for predicting the importances. To derive an
+‘overall importance’, ACE uses a weighted combination of both the local and
+global importances of each predictor. This overall averaged importance is then
+used to determine the top feature rankings to filter the most relevant features
+in several of the other plots.</p>
+<figure class="align-center" id="id8">
+<span id="fig-example-plot-feature-importance-local"></span><a class="reference internal image-reference" href="../_images/importance_local_mlpr.png"><img alt="example plot feature importance local" src="../_images/importance_local_mlpr.png" style="width: 640px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Local feature importance (file: <code class="docutils literal notranslate"><span class="pre">importance_local_{predictor}.png</span></code>)</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id9">
+<span id="fig-example-plot-feature-importance-global"></span><a class="reference internal image-reference" href="../_images/importance_global_permutation_mlpr.png"><img alt="example plot feature importance global" src="../_images/importance_global_permutation_mlpr.png" style="width: 540px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Global feature importance (file: <code class="docutils literal notranslate"><span class="pre">importance_global_permutation_{predictor}.png</span></code>)</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="response-surface-predictions">
+<h3>Response surface predictions<a class="headerlink" href="#response-surface-predictions" title="Link to this heading">¶</a></h3>
+<p>This series of plots show the response surface as a slice though the optimum as
+predicted by each of the ML-models. The black circle represent the (projected)
+baseline location whereas the optimum is indicated by the cross marker. Based
+on the weighted feature importance only the slices along the top 3 feature are
+shown. Be careful while interpreting the response surfaces as they are only as
+accurate as the ML-model is able to predict them.</p>
+<figure class="align-center" id="id10">
+<span id="fig-example-plot-response-surface"></span><a class="reference internal image-reference" href="../_images/response_surface_mlpr.png"><img alt="example plot response surface" src="../_images/response_surface_mlpr.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Response surface sliced along the 3 most important features (file: <code class="docutils literal notranslate"><span class="pre">response_surface_mlpr.png</span></code>)</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ranking-samples-plot">
+<h3>Ranking samples plot<a class="headerlink" href="#ranking-samples-plot" title="Link to this heading">¶</a></h3>
+<p>Ranking samples are requested by specification of a value N larger than 0 for
+sampling approach <code class="docutils literal notranslate"><span class="pre">ranking</span></code>. This strategy then tries to find the optimum set
+of N features that results in the lowest target violation while keeping all
+other features constant at their baseline value. E.g. if a total of 10 features
+are available, a ranking value of 2 results in the change of only those 2
+features that result in the lowest target violationl (best possible solution).
+The associated ranking samples plot shows which top N features have been
+selected and how changing their value from baseline to the optimum value
+successively contributes to lowering the target violation. Goal is to assist in
+identification of an optimal subset of features that still yields an adequate
+response. For stability reasons, the ranking plot is created only after
+4 or more batches are available (so earliest in <code class="docutils literal notranslate"><span class="pre">batch03</span></code> a ranking
+plot is available).</p>
+<figure class="align-center" id="id11">
+<span id="fig-example-plot-ranking-samples"></span><a class="reference internal image-reference" href="../_images/feature_ranking_samples.png"><img alt="example plot ranking samples" src="../_images/feature_ranking_samples.png" style="width: 540px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Top 2 feature ranking samples (file: <code class="docutils literal notranslate"><span class="pre">feature_ranking_samples.png</span></code>)</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="prediction-errors">
+<h3>Prediction errors<a class="headerlink" href="#prediction-errors" title="Link to this heading">¶</a></h3>
+<p>In order to get an indication how well the different ML models are performing
+two further accuracy related plots are exported, the training and the
+prediction error plot.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">training error<span class="colon">:</span></dt>
+<dd class="field-odd"><p>accuracy history of the
+cross-validation error over the batches. Generally, the quality of a model its
+prediction increase with decreasing cross-validation error. Furthermore, an
+asymptotical behavior of the error shows taht dding more samples does not
+further increase the quality of a model. In this plot e.g. ‘linreg’ does no
+longer benefit whereas ‘gpr’ keeps improving while adding more batches (more
+samples).</p>
+</dd>
+<dt class="field-even">prediction error<span class="colon">:</span></dt>
+<dd class="field-even"><p>accuracy history over batches indicating how well each of
+the trained ML models is able to predict the target violation at the optimum.</p>
+</dd>
+</dl>
+</div></blockquote>
+<figure class="align-center" id="id12">
+<span id="fig-example-plot-cv-error"></span><a class="reference internal image-reference" href="../_images/accuracy_cv_error.png"><img alt="example plot cross validation error" src="../_images/accuracy_cv_error.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Cross-validation error history (file: <code class="docutils literal notranslate"><span class="pre">accuracy_cv_error.png</span></code>)</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id13">
+<span id="fig-example-plot-predict-error"></span><a class="reference internal image-reference" href="../_images/accuracy_prediction_error.png"><img alt="example plot prediction error" src="../_images/accuracy_prediction_error.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Prediction validation error history (file: <code class="docutils literal notranslate"><span class="pre">accuracy_prediction_error.png</span></code>)</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="feature-pair-plot">
+<h3>Feature pair plot<a class="headerlink" href="#feature-pair-plot" title="Link to this heading">¶</a></h3>
+<p>The pair plot shows all samples versus the features and target violation. Goal
+is to gain an understanding of correlations between features and the target
+violation in dependence of the sampling approach. At most the top 12
+importance ranked features are displayed (blend out non-relevant features).</p>
+<figure class="align-center" id="id14">
+<span id="fig-example-plot-pairplot"></span><a class="reference internal image-reference" href="../_images/pairplot_samples.png"><img alt="example plot pairplot" src="../_images/pairplot_samples.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Pair-plot correlation of all samples (file: <code class="docutils literal notranslate"><span class="pre">pairplot_samples.png</span></code>)</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="table-descriptions-csv-files">
+<h2>Table descriptions (csv files)<a class="headerlink" href="#table-descriptions-csv-files" title="Link to this heading">¶</a></h2>
+<p>For easy access using spreatsheet tools or scripting languages, certain relevant
+data is exported to comma separated file format (*.csv). In case the csv
+filename matches the name of a plot/image file the contents will reflect the
+information available in the plot.
+However, also a number of additional csv files are generated that do not belong
+to a plot directly.</p>
+<section id="experiment-parameters">
+<h3>Experiment parameters<a class="headerlink" href="#experiment-parameters" title="Link to this heading">¶</a></h3>
+<p>To verify the definition of the experiment parameters (features), the csv file
+<code class="docutils literal notranslate"><span class="pre">experiment_parameters.csv</span></code> is created.</p>
+<span id="tab-csv-experiment-parameters"></span><table class="docutils align-default" id="id15" style="width: 600px">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Experiment parameters (features)</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter name</p></th>
+<th class="head"><p>card</p></th>
+<th class="head"><p>card id</p></th>
+<th class="head"><p>field</p></th>
+<th class="head"><p>min</p></th>
+<th class="head"><p>max</p></th>
+<th class="head"><p>initial</p></th>
+<th class="head"><p>constant</p></th>
+<th class="head"><p>discrete</p></th>
+<th class="head"><p>mass_sens</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>T_PSHELL_ID10100</p></td>
+<td><p>PSHELL</p></td>
+<td><p>10100</p></td>
+<td><p>T</p></td>
+<td><p>1.600E+00</p></td>
+<td><p>2.400E+00</p></td>
+<td><p>2.000E+00</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>2.091E-03</p></td>
+</tr>
+<tr class="row-odd"><td><p>T_PSHELL_ID10101</p></td>
+<td><p>PSHELL</p></td>
+<td><p>10101</p></td>
+<td><p>T</p></td>
+<td><p>6.000E-01</p></td>
+<td><p>9.000E-01</p></td>
+<td><p>7.500E-01</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>2.374E-03</p></td>
+</tr>
+<tr class="row-even"><td><p>K3_PBUSH_ID10001</p></td>
+<td><p>PBUSH</p></td>
+<td><p>10001</p></td>
+<td><p>K3</p></td>
+<td><p>1.250E+02</p></td>
+<td><p>3.750E+02</p></td>
+<td><p>2.500E+02</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>0.000E+00</p></td>
+</tr>
+<tr class="row-odd"><td><p>RHO_MAT1_ID10000001</p></td>
+<td><p>MAT1</p></td>
+<td><p>10000001</p></td>
+<td><p>RHO</p></td>
+<td><p>7.065E-09</p></td>
+<td><p>8.635E-09</p></td>
+<td><p>7.850E-09</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>1.307E+06</p></td>
+</tr>
+<tr class="row-even"><td><p>RHO_MAT1_ID30000001</p></td>
+<td><p>MAT1</p></td>
+<td><p>30000001</p></td>
+<td><p>RHO</p></td>
+<td><p>7.065E-09</p></td>
+<td><p>8.635E-09</p></td>
+<td><p>7.850E-09</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>0.000E+00</p></td>
+</tr>
+</tbody>
+</table>
+<p>The first line in the table represents the header with following column names:</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">parameter name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>name of the experiment parameter (feature)</p>
+</dd>
+<dt class="field-even">card<span class="colon">:</span></dt>
+<dd class="field-even"><p>type of solver card (e.g. PSHELL)</p>
+</dd>
+<dt class="field-odd">card_id<span class="colon">:</span></dt>
+<dd class="field-odd"><p>solver card identifier (e.g. 10100)</p>
+</dd>
+<dt class="field-even">field<span class="colon">:</span></dt>
+<dd class="field-even"><p>field of solver card (e.g. T)</p>
+</dd>
+<dt class="field-odd">min<span class="colon">:</span></dt>
+<dd class="field-odd"><p>minimum value of feature range (abs)</p>
+</dd>
+<dt class="field-even">max<span class="colon">:</span></dt>
+<dd class="field-even"><p>maximum value of feature range (abs)</p>
+</dd>
+<dt class="field-odd">initial<span class="colon">:</span></dt>
+<dd class="field-odd"><p>initial baseline value of feature</p>
+</dd>
+<dt class="field-even">constant<span class="colon">:</span></dt>
+<dd class="field-even"><p>flag to indicate whether feature has constant value (single value)</p>
+</dd>
+<dt class="field-odd">discrete<span class="colon">:</span></dt>
+<dd class="field-odd"><p>flag to indicate whether feature has discrete values (discrete range)</p>
+</dd>
+<dt class="field-even">mass_sens<span class="colon">:</span></dt>
+<dd class="field-even"><p>mass sensitivity of feature (mass change per unit change of feature value)</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="mass-tables-baseline-and-optimum">
+<h3>Mass tables (baseline and optimum)<a class="headerlink" href="#mass-tables-baseline-and-optimum" title="Link to this heading">¶</a></h3>
+<p>During Nastran model parsing ACE computes the mass associated with all known
+solver cards for the initial baseline state and if available also for the
+optimized design state. Besides computing the overall mass, the mass is also
+aggregated (collected) on property type and property identifier level:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>-<code class="docutils literal notranslate"><span class="pre">mass_table_baseline_ptype.csv</span></code>: mass table for baseline model, aggregated per property type</dt><dd><p>(e.g. mass of summed over all PSHELL cards)</p>
+</dd>
+<dt>-<code class="docutils literal notranslate"><span class="pre">mass_table_baseline_pid.csv</span></code>: mass table for baseline model, aggregated per property</dt><dd><p>identifier (e.g. mass summed per PSHELL card ID)</p>
+</dd>
+<dt>-<code class="docutils literal notranslate"><span class="pre">mass_table_optimum_ptype.csv</span></code>: mass table for optimized model, aggregated per property type</dt><dd><p>(e.g. mass of summed over all PSHELL cards)</p>
+</dd>
+<dt>-<code class="docutils literal notranslate"><span class="pre">mass_table_optimum_pid.csv</span></code>: mass table for optimized model, aggregated per property</dt><dd><p>identifier (e.g. mass summed per PSHELL card ID)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>For a simple example model, the property type aggregated mass is shown in
+<a class="reference internal" href="#tab-csv-mass-table-ptype"><span class="std std-numref">Table 2</span></a>.</p>
+<span id="tab-csv-mass-table-ptype"></span><table class="docutils align-default" id="id16" style="width: 720px">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Mass aggregated on property type level (<code class="docutils literal notranslate"><span class="pre">mass_table_baseline_ptype.csv</span></code>)</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>dimension</p></th>
+<th class="head"><p>propcard</p></th>
+<th class="head"><p>n_elements</p></th>
+<th class="head"><p>mass_sm</p></th>
+<th class="head"><p>mass_nsm</p></th>
+<th class="head"><p>mass_tot</p></th>
+<th class="head"><p>label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>M0D</p></td>
+<td><p>PBUSH</p></td>
+<td><p>4</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>M0D</p></td>
+<td><p>PDUM_CONM2</p></td>
+<td><p>1</p></td>
+<td><p>0.001000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.001000</p></td>
+<td><p>dummy property</p></td>
+</tr>
+<tr class="row-even"><td><p>M2D</p></td>
+<td><p>PSHELL</p></td>
+<td><p>1048</p></td>
+<td><p>0.010258</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.010258</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>M3D</p></td>
+<td><p>PSOLID</p></td>
+<td><p>2240</p></td>
+<td><p>0.000073</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000073</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SUM</p></td>
+<td><p>TOTAL</p></td>
+<td><p>3293</p></td>
+<td><p>0.011331</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.011331</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>As in most csv files, the first line in the table represents the header with following column names:</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">dimension<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mass dimension (e.g. 0D: CONM2 elements, 3D: SOLID elements)</p>
+</dd>
+<dt class="field-even">propcard<span class="colon">:</span></dt>
+<dd class="field-even"><p>type of property card (e.g. PSHELL)</p>
+</dd>
+<dt class="field-odd">n_elemens<span class="colon">:</span></dt>
+<dd class="field-odd"><p>number of elements referencing the property type</p>
+</dd>
+<dt class="field-even">mass_sm<span class="colon">:</span></dt>
+<dd class="field-even"><p>structural mass associated with the property type</p>
+</dd>
+<dt class="field-odd">mass_nsm<span class="colon">:</span></dt>
+<dd class="field-odd"><p>non-structural mass associated with the property type</p>
+</dd>
+<dt class="field-even">mass_tot<span class="colon">:</span></dt>
+<dd class="field-even"><p>total mass associated with the property type</p>
+</dd>
+<dt class="field-odd">label<span class="colon">:</span></dt>
+<dd class="field-odd"><p>an optional label (description)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Note that the last row/line in the mass table always contains the total summed
+mass in the table. Furthermore, for some elements that are commonly used but
+have no property associated with them, a dummy property “PDUM” is created to
+enable displaying of these mass values as well (e.g. PDUM_CONM2 aggregates the
+mass of all CONM2 elements).</p>
+<p>Likewise, the csv file <code class="docutils literal notranslate"><span class="pre">mass_table_baseline_pid.csv</span></code> contains the mass
+aggerated for each poperty identifier (pid) separately, by introducing an
+additional <strong>pid</strong> column. These tables are often useful to get a brief
+overview about the mass in both the baseline state as well as the optimized
+design state.</p>
+</section>
+<section id="experiment-samples">
+<h3>Experiment samples<a class="headerlink" href="#experiment-samples" title="Link to this heading">¶</a></h3>
+<p>At the end of an ACE run, a large table is exported in the csv file
+<code class="docutils literal notranslate"><span class="pre">experiment_samples.csv</span></code> under the <code class="docutils literal notranslate"><span class="pre">results</span></code> directory. This table contains
+amongst others the feature values for each of the samples that has been
+generated in every batch of the run. Furthermore information about the target
+violation (<strong>res</strong> column) and the batches and sampling appoach is contained.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2025, CDH AG.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

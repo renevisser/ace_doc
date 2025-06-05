@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; User Manual 2025a documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=28445a45" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_styles.css?v=b6557435" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=64635090" />
+    <script src="../_static/documentation_options.js?v=5e98d239"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/ace_32x32_small.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Commands and modes of operation" href="usage_commands.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ace_logo_html.png" alt="Logo of User Manual"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">User Manual</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-idea-and-concept">Basic idea and concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#areas-of-applications-and-key-features">Areas of applications and key features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites-and-limitations">Prerequisites and Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage_commands.html">Commands and modes of operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_project.html">Setup a new ACE project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objective.html">Goal of optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ace_file.html">ACE project file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results_output.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_cards.html">Supported Nastran cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_pdf.html">Download pdf versions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="quickstart.html" title="previous chapter">Quickstart</a></li>
+      <li>Next: <a href="usage_commands.html" title="next chapter">Commands and modes of operation</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
+<p>This manual describes the usage instructions for CDH/ACE
+(further referred to as <strong>ACE</strong>), a software framework to perform <strong>A</strong>utonomous
+<strong>C</strong>omputational <strong>E</strong>xperiments using Nastran and/or Optran based FEM solvers.
+At the time of writing, ACE is mainly focussed towards, but not limited to,
+applications in the field of <strong>N</strong>oise and <strong>V</strong>ibration <strong>H</strong>arshness (<strong>NVH</strong>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A pdf version of this document is available under section
+<a class="reference internal" href="download_pdf.html#download-pdf-versions"><span class="std std-ref">Download pdf versions</span></a>.</p>
+</div>
+<section id="basic-idea-and-concept">
+<h2>Basic idea and concept<a class="headerlink" href="#basic-idea-and-concept" title="Link to this heading">¶</a></h2>
+<p>The idea of <strong>ACE</strong> is to perform <strong>A</strong>utonomous <strong>C</strong>omputational <strong>E</strong>xperiments
+for CAE simulation.
+Similar to how engineers typically proceed, the basic principle consists of
+the following <strong>4 elementary steps</strong>:</p>
+<ul class="simple">
+<li><p><strong>try out</strong> different CAE simulation/model <strong>experiment parameters</strong> (e.g. design variables)</p></li>
+<li><p><strong>observe/remember</strong> the influence on the <strong>CAE results / target</strong> settings</p></li>
+<li><p><strong>learn</strong> correlations or identify patterns between experiment <strong>parameters</strong> and <strong>results</strong></p></li>
+<li><p><strong>predict/take action</strong> to modifythe parameter values such that a <strong>target is reached</strong></p></li>
+</ul>
+<p>By automating the above steps a <strong>self-learning loop</strong> is created that tries to
+reach a specified target setting in an <strong>autonomous</strong> manner by experimentation
+(see <a class="reference internal" href="#fig-ace-elementary-steps"><span class="std std-numref">Fig. 1</span></a>).</p>
+<figure class="align-center" id="id1">
+<span id="fig-ace-elementary-steps"></span><a class="reference internal image-reference" href="../_images/ace_cycle_only.png"><img alt="elementary 4 steps" src="../_images/ace_cycle_only.png" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Elementary steps of a self-learning cycle</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Within the context of CAE analysis this idea can be translated to a flow schedule as
+illustrated in <a class="reference internal" href="#fig-ace-flow-schedule"><span class="std std-numref">Fig. 2</span></a>.</p>
+<figure class="align-center" id="id2">
+<span id="fig-ace-flow-schedule"></span><a class="reference internal image-reference" href="../_images/ace_overview_learn_cycle.png"><img alt="main flow schedule" src="../_images/ace_overview_learn_cycle.png" style="width: 840px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Modular setup of ACE for CAE analysis</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>On the left-hand side of the flow schedule, the conventional CAE process is shown
+where a <strong>physical model</strong> is made and then solved to predict the responses
+of the system under investigation. This side is often referred to as <em>direct modelling</em>
+because the underlying physical laws are directly captured by the numerical model. Within the
+field of CAE, the finite element method (FEM) has evolved to one of the most important
+approaches for function validation during product development.</p>
+<p>Whereas on the right-hand side, in opposing direction, a so-called <strong>data model</strong> is made
+that relates the computed responses of the physical model with the original input parameters.
+This is usually referred to as <em>indirect</em> modelling as the resulting model is only based on
+observations of input and outputs of an otherwise unknown system (without describing any physics).
+Nowadays, most of the data models are based on machine learning (ML) and
+artificial intelligence (AI) approaches.</p>
+<p>One major advantage of the direct physical modelling is that is reveals insights
+in the physical mechanisms and allows for identification of root causes and effects for potential
+problems or questions at stake. The down-side however is that it typically requires quite
+some experience to setup a meaningful CAE simulation and that the actual solving of
+the model can take up quite some time and resources (e.g. several hours for a single run).</p>
+<p>In contrast, the computation time and associated resources to make a prediction
+using an available data model (e.g. using a trained machine learning model) is extremely fast
+(often on the order of miliseconds). As a consequence such an model can be used easily for
+predicting system-behavior for many variations of the input parameters or for using such
+a model in a real-time environment. A futher advantage of such models is that they can be used
+to predict behavior of systems that have too complex behavior or have no obvious underlying
+physical laws, e.g. weather predictions heavily rely on observations. Drawback is that these
+techniques require many more-or-less reliable observations of the input and output data.</p>
+<p>Finally, the idea behind ACE is to couple the world of <em>engineering science</em> (physical models)
+with the ML/AI technologies from the field of <em>data science</em> in a highly automated
+and user friendly way.
+This results in a self-learning and auto-correcting autonomous system that is able to
+setup it’s own CAE simulation runs by modification of specified input parameters, submit the
+CAE jobs into a HPC cluster, collect the response data, train machine learning models and
+use these in an AI-agent to setup further CAE simulations to reach a user specified goal.</p>
+</section>
+<section id="areas-of-applications-and-key-features">
+<h2>Areas of applications and key features<a class="headerlink" href="#areas-of-applications-and-key-features" title="Link to this heading">¶</a></h2>
+<p>Typical areas of application of ACE consist amongst others of:</p>
+<ul class="simple">
+<li><p>handling of <strong>advanced CAE processes</strong> (e.g. loadstorm, mode agent plugins)</p></li>
+<li><p>automated <strong>design of experiments</strong> (DOE)</p></li>
+<li><p><strong>Parameter optimization</strong> and/or <strong>identification</strong></p></li>
+<li><p><strong>Sensitivity analysis</strong> and <strong>robustness studies</strong> based on fast evaluation of ML-models</p></li>
+<li><p><strong>Model reduction</strong> using trained ML models (real-time models)</p></li>
+<li><p><strong>Python</strong> based integration and automation of <strong>customized tools / plugins</strong></p></li>
+<li><p><strong>Performance optimization</strong> of simulation and solver settings</p></li>
+</ul>
+<p>Some of ACE its key features are:</p>
+<ul class="simple">
+<li><p>Combine <strong>machine learning algorithms</strong> with <strong>efficient CAE solvers</strong></p></li>
+<li><p>Ability to generate it’s own CAE result data where required (<strong>autonomous</strong> system)</p></li>
+<li><p><strong>Self-learning</strong> and <strong>self-correcting</strong> nature due to iterative learning cycles</p></li>
+<li><p>Focused toward efficient use for discipline of <strong>vibration and acoustics</strong></p></li>
+<li><p>Fully automated interface with <strong>Nastran</strong>, <strong>Optran</strong> and/or <strong>Optistruct</strong> FEM solvers</p></li>
+<li><p><strong>Easy to use</strong>, minimum man-power required to setup</p></li>
+<li><p><strong>Highly scalable</strong> across many CAE hosts / compute nodes</p></li>
+<li><p>Supports up to <strong>64 CPU-cores per host</strong></p></li>
+<li><p>Able to <strong>dock on to existing CAE queueing systems</strong></p></li>
+<li><p>All relevant <strong>data</strong> and <strong>post-processing pictures</strong> are generated <strong>fully automated</strong></p></li>
+<li><p><strong>Modern and open python based concept</strong> allows easy integration of own <strong>customized tools and plugins</strong></p></li>
+<li><p>Ideal as optimization and robustness study solution for Optran</p></li>
+</ul>
+</section>
+<section id="prerequisites-and-limitations">
+<h2>Prerequisites and Limitations<a class="headerlink" href="#prerequisites-and-limitations" title="Link to this heading">¶</a></h2>
+<p>Following prerequisites and/or limitations apply to the ACE framework</p>
+<ul class="simple">
+<li><p>Officially supported hardware consists of Intel-Xeon or AMD-EPYC based HPC systems</p></li>
+<li><p>The host that runs ACE itself should have at least 64Gb of memory and have
+a minimum of 4 physical CPU cores (recommended: 8 cores or more)</p></li>
+<li><p>The IT-ecosystem should be based on 64bit Linux systems (kernel version &gt; 3.10)</p></li>
+<li><dl class="simple">
+<dt>At least one of the following FEM solvers is required to perform the CAE simulations:</dt><dd><ul>
+<li><p>Hexagon / MSC Nastran</p></li>
+<li><p>Simcenter / NX Nastran</p></li>
+<li><p>Altair Optistruct</p></li>
+<li><p>CDH/Optran</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>If the CAE solver environment is controlled through a task queuing /
+submission system ACE can take advantage of that to distribute the CAE jobs
+across multiple compute nodes/hosts (full DMP distributed computing)</p></li>
+<li><p>Unpacking of the ACE installation archives must be performed on Linux as
+symbolic links are available that are typically not supported on Windows OS.</p></li>
+<li><p>Some of job-settings are currently prescribed by ACE and are not yet allowed
+to be changed through a configuration file. This functionality to generalize
+settings will be added successively with the upcoming ACE versions</p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2025, CDH AG.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
